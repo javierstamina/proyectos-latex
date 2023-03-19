@@ -1,0 +1,38 @@
+    \setcounter{myWeekNum}{37} % à ajuster avec le numéro de la semaine de départ du diagramme
+    \begin{ganttchart}[time slot format=isodate, 
+    		vgrid={*6{draw=none}, dotted}, %hgrid=true, 
+            x unit=0.11cm,	% cette valeur contrôle la largeur d'un jour, i.e. celle du diagramme
+			y unit chart = 0.6cm, bar height=0.6,
+			y unit title = 0.5cm, title height=1,
+            include title in canvas=false,
+        ]{2018-09-10}	% date de début de la période considérée
+        {2019-01-20}	% date de fin de la période considérée
+        % indications temporelles
+    	\gantttitlecalendar[title/.style={fill=fgRed!75,draw=black}]{year} \\
+    	\gantttitlecalendar[title/.style={fill=fgLightRed,draw=black}]{month=shortname} \\
+    	\gantttitlecalendar[title/.style={fill=fgVeryLightRed,draw=black}]{week} \\
+        % séances de TP
+		\ganttmilestone{TP}{2018-09-13} %TP01
+		\ganttmilestone{}{2018-10-05}	%TP02
+		\ganttmilestone{}{2018-10-25}   %TP03
+        \ganttmilestone{}{2018-11-15}	%TP04
+        \ganttmilestone{}{2018-12-06}	%TP05
+        \ganttmilestone{}{2018-12-07}	%TP06
+        \ganttmilestone{}{2019-01-18}\\	%TP07
+        % tâches
+		\ganttbarbis{T01}{Conception générale}{2018-10-03}{2018-10-29}{blue!50} \\
+		\ganttbarbis{T02}{Débogage}{2018-10-30}{2018-11-15}{blue!50} \\
+		\ganttbarbis{T03}{Design des graphismes}{2018-10-03}{2018-12-30}{purple!50} \\
+		\ganttbarbis{T04}{Debug.}{2018-12-31}{2019-01-10}{purple!50} \\
+		\ganttbarbis{T05}{Mise au point du mode réseau}{2018-10-01}{2018-12-11}{teal!50} \\
+		\ganttbarbis{T06}{Test du réseau}{2018-12-12}{2019-01-12}{teal!50} \\
+		\ganttbarbis{T07}{Développement de l'interface graphique}{2018-09-29}{2019-01-07}{orange!50} \\
+        % dates de rendu
+		\drawverticalline{2018-09-16}{R1}
+		\drawverticalline{2018-10-04}{R2}
+		\drawverticalline{2018-10-24}{R3}
+		\drawverticalline{2018-11-14}{R4}
+		\drawverticalline{2018-12-05}{R5}
+		\drawverticalline{2019-01-17}{R6-8}
+		\drawverticalline{2019-01-18}{}
+    \end{ganttchart}

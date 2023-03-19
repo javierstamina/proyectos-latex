@@ -1,0 +1,16 @@
+\documentclass[11pt]{article}
+\usepackage{pst-all}
+\usepackage{pst-inﬁxplot}
+\begin{document}
+
+\begin{pspicture}(-2,-2)(2,2)
+\psgrid[gridcolor=black,%
+subgridcolor=red]
+\infixtoRPN{(x^3)-x}
+\psplot[plotstyle=curve,%
+linecolor=blue,
+showpoints=true]{-1.5}{1.5}{\RPN}
+\end{pspicture}
+
+
+\end{document}

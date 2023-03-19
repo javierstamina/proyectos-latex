@@ -1,0 +1,94 @@
+\newpage
+%*********************
+% EJERCICIO
+\section{Teoremas cuadriláteros}
+\subsection{Bisectrices de trapecio}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.75]
+\tkzDefPoints{0/0/A,2/5/B,4/5/C,7/0/D}
+\tkzDrawPolygon(A,B,C,D)
+\node[below] at(A) {A};
+\node[above] at(B) {B};
+\node[above] at(C) {C};
+\node[right] at(D) {D};
+
+\tkzDefLine[bisector,normed](D,A,B) \tkzGetPoint{a}
+\tkzDefLine[bisector,normed](A,B,C) \tkzGetPoint{b}
+\tkzInterLL(A,a)(B,b) \tkzGetPoint{M}
+\tkzDrawSegments(A,M B,M)
+
+\tkzDefLine[bisector,normed](B,C,D) \tkzGetPoint{c}
+\tkzDefLine[bisector,normed](C,D,A) \tkzGetPoint{d}
+\tkzInterLL(D,d)(C,c) \tkzGetPoint{N}
+\tkzDrawSegments(C,N D,N M,N)
+\tkzLabelSegment[above](M,N){x}
+\tkzLabelSegment[left](A,B){$a$}
+\tkzLabelSegment[above](B,C){$b$}
+\tkzLabelSegment[right](C,D){$c$}
+\tkzLabelSegment[below](D,A){$d$}
+
+\tkzMarkAngle[size=0.5cm](D,A,M)
+\tkzMarkAngle[size=0.5cm](M,A,B)
+\tkzMarkAngle[size=0.5cm](A,B,M)
+\tkzMarkAngle[size=0.5cm](M,B,C)
+\tkzMarkAngle[size=0.5cm](B,C,N)
+\tkzMarkAngle[size=0.5cm](N,C,D)
+\tkzMarkAngle[size=0.5cm](C,D,N)
+\tkzMarkAngle[size=0.5cm](N,D,A)
+
+\tkzLabelAngle[pos=.8](D,A,M){$\alpha$}
+\tkzLabelAngle[pos=.8](M,A,B){$\alpha$}
+\tkzLabelAngle[pos=.8](A,B,M){$\beta$}
+\tkzLabelAngle[pos=.8](M,B,C){$\beta$}
+\tkzLabelAngle[pos=.8](B,C,N){$\gamma$}
+\tkzLabelAngle[pos=.8](N,C,D){$\gamma$}
+\tkzLabelAngle[pos=1](C,D,N){$\delta$}
+\tkzLabelAngle[pos=1](N,D,A){$\delta$}
+
+\end{tikzpicture}  
+\caption{}
+\end{figure}
+
+Sea el trapecio $ABCD$\\
+Se cumple:
+%formula
+$$ x = \frac{(a+c)-(b+d)}{2} $$
+
+%*********************
+% EJERCICIO
+\subsection{Teorema diagonales perpendiculares}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.75]
+\tkzDefPoints{0/0/A,{2+sqrt{8}}/2/C,2.5/{2-sqrt{31}/2}/D,2/2/O}
+\tkzDrawCircle(O,A)
+\tkzDrawPoint(O)
+\tkzLabelPoint(O){O}
+\node[below] at(A) {A};
+%\node[above] at(B) {B};
+\node[right] at(C) {C};
+\node[below] at(D) {D};
+\tkzDefPointBy[projection=onto A--C](D) \tkzGetPoint{M}
+\tkzInterLC(D,M)(O,A) \tkzGetSecondPoint{B}
+\tkzDrawPoint(B)
+\tkzLabelPoint(B){B}
+\tkzDrawPolygon(A,B,C,D)
+\tkzLabelSegment[left](A,B){$a$}
+\tkzLabelSegment[above](B,C){$b$}
+\tkzLabelSegment[right](C,D){$c$}
+\tkzLabelSegment[below](D,A){$d$}
+\tkzDrawSegments(A,C B,D)
+\tkzMarkRightAngles[fill=brown!20](C,M,B)
+
+\end{tikzpicture}  
+\caption{}
+\end{figure}
+
+Sea el cuadrilátero $ABCD$ cuyas deiagonales se intersectan en forma perpendicular\\
+Se cumple:
+%formula
+$$ a^2+b^2=c^2+d^2 $$
+

@@ -1,0 +1,82 @@
+\footnotesize
+%\resizebox{16.5cm}{!}{
+\begin{longtable}{|l|l|}%[h]
+%\centering
+
+
+%\begin{tabular}
+%\caption{A sample long table.} \label{tab:long} \\
+
+\endfirsthead
+
+
+\endhead
+
+
+\hline
+$ \dst \int a \:\dd x= ax+C $ & $ \dst \int a f(x) \:\dd x= a \int f(x)\:\dd x $ \\ \hline
+$ \dst \int (f + g) \:\dd x= \int f \:\dd x+\int g \:\dd x $ &
+$ \dst \int f \dd g= fg- \int g \dd f $ \\ \hline
+\ensuremath{   
+\begin{array}{c}
+  \dst \int x^n \:\dd x=\dfrac { x^{n+1}}{n+1} +C \\
+  n\neq1 
+\end{array}  
+}
+& $ \dst \int x^{-1} \:\dd x=\ln|x|+C $ \\ \hline
+$\dst \int e^{x} \:\dd x=e^{x}+C $ & $\dst \int a^{x} \:\dd x=\dfrac {a^{x}}{ln a}+C$ \\ \hline
+$\dst \int xa^{x} \:\dd x=\dfrac {a^{x}}{ln a}\cdot \left ( x-\dfrac 1{\ln a}\right ) +C $ & $\dst \int xe^{x} \:\dd x=e^{x}\cdot\left ( x- 1 \right ) +C$ \\ \hline
+$\dst \int \ln x \:\dd x=x\cdot \ln x - x +C=x\cdot (\ln x - 1) +C $ & $\dst \int x \ln x \:\dd x=\dfrac {x^2}4 \cdot (2 \ln x - 1) +C$ \\ \hline
+$\dst \int \sin x \:\dd x=-\cos x +C $ & $\dst \int \cos x \:\dd x=\sin x +C$ \\ \hline
+$\dst \int \sec x \tan x \:\dd x=\sec x +C $ & $\dst \int \csc x \cot x \:\dd x=-\csc x +C $ \\ \hline
+$\dst \int \tan x \:\dd x=-\ln |\cos x| +C=\ln |\sec x| +C $ & $\dst \int \cot x \:\dd x=\ln |\cos x| +C=-\ln |\csc x| +C$ \\ \hline
+$\dst \int \sec x \:\dd x=-\ln |\sec x+ \tan x| +C $ & $\dst \int \csc x \:\dd x=-\ln|\csc x- \cot x| +C$ \\ \hline
+$\dst \int \sin^2 x \:\dd x=\dfrac x2 -\dfrac 14\sin 2x +C $ & $\dst \int \cos^2 x \:\dd x=\dfrac x2 +\dfrac 14\sin 2x +C$ \\ \hline
+$\dst \int \tan^2 x \:\dd x=\tan x- x +C $ & $\dst \int \cot^2 x \:\dd x= -\cot x- x +C $ \\ \hline
+$\dst \int \sec^2 x \:\dd x=\tan x +C$ & $\dst \int \csc^2 x \:\dd x=-\cot x +C$ \\ \hline
+$\dst \int x\sin x \:\dd x=\sin x-x\cos x +C$ & $\dst \int x\cos x \:\dd x=\cos x+x\sin x +C$ \\ \hline
+$\dst \int \arcsin x \:\dd x=x\sin x+\sqrt{1-x^2} +C$ & $\dst \int \arccos x \:\dd x=x\cos x-\sqrt{1-x^2} +C$ \\ \hline
+$ \dst \int \arctan x \:\dd x=x\tan x-\ln(\sqrt{1+x^2}) +C $ & $\dst \int arccot\:x \:\dd x=x\cot x+\ln(\sqrt{1+x^2}) +C $ \\ \hline
+
+
+
+\centering
+\ensuremath{   
+\begin{array}{c}
+\dst \int \arcsec x \:\dd x=x\sec x-\ln(x+\sqrt{x^2-1}) +C  \\
+=x\sec x-\arccosh x +C 
+\end{array}  
+} 
+& \ensuremath{   \begin{array}{c} \dst \int \arccsc x \:\dd x=x\csc x+\ln(x+\sqrt{x^2-1}) +C  \\ =x\sec x+\arccosh x +C     \end{array}   } 
+\\ \hline
+$\dst \int \sinh x \:\dd x=\cosh x +C$ & $\dst \int \cosh x \:\dd x=\sinh x +C $ \\ \hline
+$\dst \int sech^2 x \:\dd x=\tanh x +C$ & $\dst \int csch^2 x \:\dd x=-\coth x +C$ \\ \hline
+$\dst \int sech x \tanh x\:\dd x=-sech\:x +C$ & $\dst \int csch x \coth x\:\dd x=-csch\:x +C$ \\ \hline
+$\dst \int \tanh x\:\dd x=\ln (\cosh x )+C$ & $\dst \int \coth x\:\dd x=\ln |\sinh x |+C$ \\ \hline
+$\dst \int sech\:x \:\dd x=\arctan (\sinh x )+C$ & $\dst \int csch\:x\:\dd x=arccoth(\cosh x )+C=\ln \tanh (\frac x2 )+C $ \\ \hline
+$ \dst \int \dfrac 1{x^2+a^2}\:\dd x=\dfrac 1a\arctan \dfrac xa+C=-\dfrac 1a arccot \dfrac xa+C$ &
+\ensuremath{   
+\begin{array}{c}
+ \dst \int \dfrac 1{x^2-a^2}\:\dd x=\dfrac 1{2a}\ln(\dfrac {x-a}{x+a})+C \\ 
+ x^2>a^2 
+\end{array}  
+}
+\\ \hline
+\ensuremath{   
+\begin{array}{c}
+ \dst \int \dfrac 1{a^2-x^2}\:\dd x=\dfrac 1{2a}\ln(\dfrac {a+x}{a-x})+C\\x^2<a^2
+\end{array}  
+}
+ & $\dst \int \dfrac 1{\sqrt{a^2-x^2}}\:\dd x=\sin \dfrac xa+C=-\cos \dfrac xa+C$ \\ \hline
+$\dst \int \dfrac 1{\sqrt{x^2\pm a^2}}\:\dd x=\ln( x+\sqrt{x^2\pm a^2})+C$ & $\dst \int \dfrac 1{x\sqrt{a^2\pm x^2}}\:\dd x=\frac 1a \ln | \dfrac {x}{a+\sqrt{a^2\pm x^2}}|$ \\ \hline
+$\dst \int \dfrac 1{x\sqrt{x^2-a^2}}\:\dd x=\frac 1a\arccos \dfrac {a}{x}=-\frac 1a arcsec \dfrac {x}{a}+C$ & $\dst \int \sqrt{a^2-x^2}\:\dd x=\frac x2 \sqrt{a^2-x^2}+\dfrac {a^2}{2} \arcsin \dfrac {x}{a}+C$ \\ \hline
+$\dst \int \sqrt{x^2\pm a^2}\:\dd x=\frac x2 \sqrt{x^2\pm a^2}\pm \dfrac {a^2}{2} \ln (x+\sqrt{x^2\pm a^2})+C $ & $\dst \int e^{ax} \sin bx \:\dd x=\dfrac {e^{ax}(a \sin bx- b\cos bx)}{a^2+b^2}+C $ \\ \hline
+$\dst \int e^{ax} \cos bx \:\dd x=\dfrac {e^{ax}(a\cos bx+ b \sin bx)}{a^2+b^2}+C $ & - \\ \hline
+
+%\end{tabular}
+
+
+%\caption{Integrales}
+%\label{tab:integrales}
+\end{longtable}
+%}

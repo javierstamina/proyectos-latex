@@ -1,0 +1,204 @@
+\documentclass[13 pts]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}\spanishdecimal{.}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage{vmargin}
+\setpapersize{USlegal}
+\usepackage{amssymb,latexsym}
+\usepackage[mathscr]{euscript}
+\usepackage{epsfig}
+\usepackage{epic}
+\usepackage{enumerate}
+\usepackage{eepic}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{threeparttable}
+\usepackage{amscd}
+\usepackage{here}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{subfigure}
+\usepackage{longtable}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{epsfig}
+\usepackage{listings}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+\usepackage{rotating}
+\usepackage{bigints}
+\usepackage{multicol} 
+\usepackage{listings}
+\usepackage{hyperref}
+%Paquete para la escritura actuarial
+\usepackage{actuarialsymbol}
+
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{18cm}
+\usepackage[usenames,dvipsnames]{pstricks}
+\topmargin = 0cm
+\textheight = 11.4in
+\textwidth = 6,8in
+\oddsidemargin = 1.8cm
+\evensidemargin = 0.0cm
+
+
+
+\usepackage{fourier}
+%\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\theoremstyle{definition}
+\newtheorem{ex}{Ejercicio}
+\usepackage{answers}
+\Newassociation{sol}{Solution}{ans}
+\renewcommand{\Solutionlabel}[1]{\textbf{solución #1.}}
+
+\newtheorem{theorem}{Teorema}[section]
+%\newtheorem{theorema}{Teorema}
+\newtheorem{definition}[theorem]{ Definición}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{exercise}[theorem]{Ejercicio}
+%\newtheorem{defination}[theorem]{Definición}
+
+
+\newcommand{\lf}[1]{$\displaystyle #1$}
+
+
+
+
+
+\begin{document}
+
+
+
+
+\voffset-2.5cm
+\parbox{6cm}{\includegraphics [scale=0.8]{ecci.png} }\parbox{8cm}{{Universidad ECCI}\\{Programa de Estadística}\\{Curso que estudia}\\{Nombre de la actividad}\\{Nombre y apellidos} \bf  }
+
+\vspace{-2.0cm}
+
+
+\section*{En este espacio escribe la solución del taller}
+
+\section*{Ecuaciones Matemáticas}
+\label{sec:escuaciones}
+Veremos una serie de tipos de expresiones matemáticas:\\
+
+\(a^2 = b^2 + c^2\) o algo as? \(\bar{x^2} \ne \bar{x}^2\) \\
+
+\begin{equation}
+  \label{eq:suma}
+  \sum_{0 \le i \ge  n} a_i = 1000
+\end{equation}
+
+A veces podemos colocar una ecuación en nuestro párrafo, como esta
+ por ejemplo $\displaystyle x_{ij} = \sum_{0 \le i < n}\frac{x}{\sqrt[5]{1 + 23y^{112}}}$,o también puede estar al medio:
+ 
+\[x_{ij} = \sum_{0 \le i < n}\frac{x}{\sqrt[5]{1 + 23y^{112}}}\]
+
+También podemos definir integrales (en un cuadro con minipage): 
+
+\fbox{
+  \begin{minipage}{.9\textwidth} % ancho de la caja
+    \begin{eqnarray*}
+      \int{\frac{{Mx+N}}{{(x-a)^2+b^2}}dx}
+    \end{eqnarray*}
+  \end{minipage}
+}\\[1em]
+
+
+Y matrices:
+\begin{equation}
+  \label{eq:matrices}
+  \left (
+    \begin{array}[c]{ccc}
+      a_{11} & a_{12} & a_{13} \\
+      a_{21} & a_{22} & a_{23} \\
+      a_{31} & a_{32} & a_{33} 
+    \end{array}
+  \right )^R
+  =
+  \left [
+    \begin{array}[c]{cccc}
+      b_{11} & b_{12} & \cdots & b_{1n} \\
+      b_{21} & b_{12} & \cdots & b_{1n} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      b_{n1} & b_{n2} & \cdots & b_{nn} 
+    \end{array}
+  \right ]
+\end{equation}
+
+Acotar:
+\begin{equation}
+  \label{eq:acotar}
+  z =
+  \left\{
+    \begin{array}[c]{ll}
+      0       & \mbox{si \(x < 0\)} \\
+      2x + 1  & \mbox{si \(0 \le x \le 10\)} \\
+      50x^5   & \mbox{si \(x > 0\)} \\
+    \end{array}
+  \right.
+\end{equation}
+
+Ojo con la numeración de las ecuaciones!!:
+                                % {eqnarray*}  --> todos sin numeracion
+\begin{eqnarray}
+  H_n \approx \prod_{i=1}^n \frac{1}{\sqrt{2i}} = \frac{1}{\sqrt{2}}
+  + \frac{1}{\sqrt{4}} +  \dots \nonumber \\
+  H_n \approx \prod_{i=1}^n \frac{1}{\sqrt{2i}} =  \frac{1}{\sqrt{2}} + 
+  \frac{1}{\sqrt{4}} +  \dots 
+\end{eqnarray}
+
+Algunos sombreros especiales:
+\[\hat{x}, \check{x}, \breve{x}, \tilde{x}, \bar{x}, \vec{x}, \acute{x}, \grave{x}, \dot{x}, \ddot{x}\]
+
+
+Símbolos importantes y ecuaciones varias:
+%eqnarray: para ecuaciones en varias lineas
+\begin{eqnarray*} 
+  f: \mathbb{IR} \leftarrow \mathbb{C} \\
+  f:A \times M \rightarrow M \\
+  (\lambda, x) \longrightarrow \lambda x  \\
+  \texttt{2}\>H_2\>+ O_2 \stackrel{\Delta}{\rightarrow} \texttt{2}\>H_2O\\
+  \frac{\partial(X^2)}{\partial x} = 2x\\
+  x^2 = y \longrightarrow x = \pm \sqrt{y}\\
+  \overline{(x+y)} = (x+y)^c\\
+  \Uparrow,\Downarrow, \Leftarrow, \Rightarrow\\
+  t = r \cup s  \\
+  t = \bigcup_{i=1}^n E[x]\\
+\end{eqnarray*}
+
+Esto es simpático:
+\[ \underbrace{1 + \overbrace{2 + 3}^{5} + 4}_{10} \]
+
+Esto más complejo:
+\begin{displaymath}
+  \int e^{x+y}dx dy \,\, = \,\,
+  \int e^x e^y dxdy \,\, = \,\,
+  \underbrace{\int e^x dx \, \int e^y dy}_{\stackrel{\stackrel{\uparrow}{Variables \; son \;independientes}}{Podemos \;realizar\; la\; integracion\; para\; x\; e\; y}}
+\end{displaymath}
+
+
+
+Ejemplo de bibliografía, use archivo .bib, para mayor información puede buscar en \url{http://logistica.fime.uanl.mx/miguel/docs/BibTeX.pdf}
+
+\nocite{huertas2001calculo,franco2015calculo,giraldoactuaria}
+\bibliography{biblio}{}
+    \bibliographystyle{plain}
+
+
+
+
+
+
+
+
+
+\end{document} 

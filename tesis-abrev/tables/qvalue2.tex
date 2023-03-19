@@ -1,0 +1,83 @@
+%%%
+%%%  $Id$
+%%%
+\documentclass{article}
+
+\usepackage[a4paper,noheadfoot,margin=1cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{charter} % roman: main text
+\usepackage{helvet}  % serif
+\usepackage{euler}   % math font
+\usepackage[dvips]{graphicx}%
+\usepackage[dvips]{color}
+\usepackage{array,colortbl}    
+
+%%% Ensuring empty page
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+
+\noindent\begin{minipage}{\linewidth}%
+\begin{center}%
+%\begin{tabular}{>{\scshape}llr}%
+%\hline
+%\rowcolor[gray]{0.9}
+%\color{black} \bfseries \scshape Species & \bfseries \scshape Name & \bfseries \scshape Genome size (Mb)\\
+%\hline
+
+
+\begin{tabular}{|>{\scshape}l||r|r|r|r|r|r||r|}
+\hline
+\rowcolor[gray]{0.9}
+\color{black} \bfseries \scshape \textbf{JASPAR} $~~~~~$ & Q$\geq$1 & Q$\geq$0.75 & \color{black} \bfseries \scshape \textcolor{blue}{Q$\geq$0.5} & Q$\geq$0.25 & Q$\geq$0 & \textbf{FULL} & needle\\
+\hline
+\# matrices & 4 & 9 & 16 & 32 & 63 & 111 & -\\
+\hline\hline
+Promoter & \textcolor{red}{9} & \textcolor{red}{12} & \textcolor{red}{20} & \textcolor{red}{18} & 11 & 4 & 2\\
+\hline
+5'UTR & 0 & 1 & 2 & 4 & 8 & 6 & 5\\
+\hline
+CDS & 2 & 6 & 6 & 6 & \textcolor{red}{17} & \textcolor{red}{28} & \textcolor{red}{32}\\
+\hline
+Intron & 6 & 9 & 5 & 6 & 1 & 0 & 0\\
+\hline
+Downstream & 8 & 6 & 3 & 4 & 2 & 1 & 1\\
+\hline
+Intergenic & 8 & 6 & 4 & 2 & 1 & 1 & 0\\
+\hline
+NoAlign & 7 & 0 & 0 & 0 & 0 & 0 & 0\\
+\hline
+\end{tabular}
+
+\vspace{0.25cm}
+
+\begin{tabular}{|>{\scshape}l||r|r|r|r|r|r||r|}
+\hline
+\rowcolor[gray]{0.9}
+\color{black} \bfseries \scshape \textbf{TRANSFAC} & Q$\geq$1.5 & Q$\geq$1.25 &\color{black} \bfseries \scshape \textcolor{blue}{Q$\geq$1} & Q$\geq$0.75 & Q$\geq$0 & \textbf{FULL} & needle\\
+\hline
+\# matrices & 6 & 10 & 23 & 46 & 246 & 442 & -\\
+\hline\hline
+Promoter & \textcolor{red}{18} & \textcolor{red}{19} & \textcolor{red}{24} & \textcolor{red}{21} & 2 & 1 & 2\\
+\hline
+5'UTR & 1 & 1 & 1 & 2 & 4 & 2 & 5\\
+\hline
+CDS & 5 & 6 & 6 & 11 & \textcolor{red}{32} & \textcolor{red}{35} & \textcolor{red}{32}\\
+\hline
+Intron & 7 & 7 & 6 & 4 & 0 & 1 & 0\\
+\hline
+Downstream & 3 & 3 & 1 & 1 & 1 & 1 & 1\\
+\hline
+Intergenic & 1 & 0 & 2 & 1 & 1 & 0 & 0\\
+\hline
+NoAlign & 5 & 4 & 0 & 0 & 0 & 0 & 0\\
+\hline
+\end{tabular}
+\end{center}%
+\end{minipage}%
+
+\end{center}%
+\end{document}
+

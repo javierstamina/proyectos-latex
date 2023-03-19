@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\usepackage[a4paper,noheadfoot,margin=1cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{charter} % roman: main text
+\usepackage{helvet}  % serif
+\usepackage{euler}   % math font
+\usepackage[dvips]{graphicx}%
+\usepackage[dvips]{color}
+\usepackage{array,colortbl}    
+\usepackage{multirow}
+
+%%% Ensuring empty page
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+
+\noindent\begin{minipage}{\linewidth}%
+\begin{center}%
+
+\begin{tabular}{|>{\scshape}c|rrrr|}
+\hline
+\rowcolor[gray]{0.9}
+ &\bfseries \scshape Sensitivity &\bfseries \scshape Specificity &\bfseries \scshape Correlation Coefficient &\bfseries \scshape Coverage\\
+\hline
+BLASTN & 0.70 & 0.19 & 0.16 & 54\%\\
+BLASTN$_{WSIZE=7}$ & 0.85 & 0.18 & 0.15 & 63\%\\
+\hline
+\end{tabular}
+\end{center}%
+\end{minipage}%
+
+\end{center}%
+\end{document}
+

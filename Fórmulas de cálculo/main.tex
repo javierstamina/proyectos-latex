@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{longtable}
+\usepackage{physics}
+\usepackage{amsfonts}
+
+\usepackage[table]{xcolor}
+\usepackage{mathtools}
+\usepackage{esint}
+
+\setlength{\arrayrulewidth}{0.5mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{2.5}
+\usepackage{graphicx}
+
+\usepackage[a4paper]{geometry}
+\geometry{top=1.5cm, bottom=1.0cm, left=1cm, right=1.25cm}
+
+%\usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow}
+\usepackage{array}
+
+\newcommand{\dst}{\displaystyle}
+\DeclareMathOperator{\arccosh}{arccosh}
+
+% Spanish-specific commands
+\usepackage[spanish]{babel}
+
+\title{Cálculo}
+\author{Javier ArGo}
+\begin{document}
+\tableofcontents
+\maketitle
+%\input{cuerpo/1_principal/principal}
+
+\section{Fórmulas de cálculo}
+\subsection{Derivadas}
+\input{cuerpo/2_formulas/1_derivadas.tex}
+\newpage
+\subsubsection{Propiedades de derivadas}
+\input{cuerpo/2_formulas/1.1_propied_derivadas}
+%\newpage
+\subsection{Integrales}
+\input{cuerpo/2_formulas/2_integrales.tex}
+%\newpage
+\subsubsection{Propiedades de Integrales Definidas}
+\input{cuerpo/2_formulas/2.1_propied-integrales-definidas.tex}
+\newpage
+\subsection{Transformadas de Laplace}
+\input{cuerpo/2_formulas/3_transformadas-laplace}
+\newpage
+\subsubsection{Propiedades de transformadas de Laplace}
+\input{cuerpo/2_formulas/3.1_propied_transforma-laplace}
+
+\end{document}

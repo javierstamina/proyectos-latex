@@ -1,0 +1,1010 @@
+\documentclass{book}
+
+\newlength{\thesisWidth}  
+\setlength{\thesisWidth}{195mm}
+\newlength{\thesisHeight} 
+\setlength{\thesisHeight}{240mm}
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Paper layout %%%
+%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{geometry}
+           % A4 size (first submission)
+\newcommand{\setpagelayout}{%
+  \geometry{paperwidth=\thesisWidth,%
+            paperheight=\thesisHeight,%
+            truedimen,twoside,%   a4paper,
+            pdftex,includemp=false,marginparwidth=0cm,% reversemarginpar,
+            hmargin={2cm,1cm},%   hmargin={3cm,2cm},%
+            vmargin={2cm,1.75cm}% vmargin={2.5cm,3cm}%
+  }%geometry
+}%setpagelayout
+
+\usepackage{pdfpages}
+
+\includepdfset{frame=false,pagecommand={\thispagestyle{fancyplain}}}
+
+\usepackage[T1]{fontenc} % setting extended font encoding (accents and so on)
+\usepackage{textcomp} % including some extra symbols, such as the Euro one
+\usepackage{pifont}   % accessing to Symbol and Zapf Dingbats fonts
+
+\usepackage{charter} % roman family and formulas are set to BitStream-Charter
+\usepackage{helvet}  % sans-serif family set to Helvetica
+\usepackage{euler}   % math font
+\usepackage{courier}  % typewriter family set to Courier
+
+\newcommand{\avantgarsmall}{\sffamily\mdseries\small}
+\newcommand{\avantgar}{\sffamily}
+\newcommand{\avantgarlarge}{\sffamily\mdseries\large}
+\newcommand{\avantgarLarge}{\sffamily\mdseries\Large}
+\newcommand{\avantgarhuge}{\sffamily\mdseries\huge}
+\newcommand{\avantgarHuge}{\sffamily\mdseries\Huge}
+\newcommand{\avantgarboldsmall}{\sffamily\bfseries\small}
+\newcommand{\avantgarbold}{\sffamily\bfseries\normalsize}
+\newcommand{\avantgarboldlarge}{\sffamily\bfseries\large}
+\newcommand{\avantgarboldLarge}{\sffamily\bfseries\Large}
+\newcommand{\avantgarboldhuge}{\sffamily\bfseries\huge}
+\newcommand{\avantgarboldHuge}{\sffamily\bfseries\Huge}
+\newcommand{\avantgaritalicsmall}{\sffamily\bfseries\small}
+\newcommand{\avantgaritalic}{\sffamily\bfseries\normalsize}
+\newcommand{\avantgaritalicbold}{\sffamily\bfseries\normalsize}
+\newcommand{\avantgaritaliclarge}{\sffamily\bfseries\large}
+\newcommand{\avantgaritaliclargebold}{\sffamily\bfseries\large}
+\newcommand{\avantgaritalicLarge}{\sffamily\bfseries\Large}
+\newcommand{\avantgaritalichuge}{\sffamily\bfseries\huge}
+\newcommand{\avantgaritalicHuge}{\sffamily\bfseries\Huge}
+
+\usepackage{chapterbib}
+\usepackage[round,colon,authoryear,sectionbib]{natbib}
+    % Natural Sciences Citations: author-year and numerical citations
+    %
+    % Some Package Options:
+    %
+    %  round -> round parentheses () (default option)
+    % square -> square parentheses []
+    %  curly -> curly braces {}
+    %  angle -> for angle brackets <>
+    %
+    %  colon -> to separate multiple citations with colons (default)
+    %  comma -> use commas as separaters
+    %
+    % authoryear -> author-year citations (default)
+    %    numbers -> numerical citations
+    %      super -> for subscripted numerical citations, as in Nature
+
+
+\newcommand{\bibfont}{\small} % To get less bibliography pages
+                              % when having lots of references
+
+\makeatletter
+\renewcommand\@pnumwidth{1.9em}
+
+\usepackage[Lenny]{fncychap}
+\renewcommand{\ChNameVar}{\fontsize{14}{16}\usefont{OT1}{phv}{m}{n}\selectfont}
+\renewcommand{\ChNumVar}{\fontsize{60}{62}\usefont{OT1}{ptm}{m}{n}\selectfont}
+\ChTitleVar{\fontsize{30}{16}\sffamily}
+
+\def\@makechapterhead#1{%
+\color{blue}
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter%%%%% Fix for frontmatter, mainmatter, and backmatter 040920
+        \DOCH
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \DOTI{#1}
+  }
+\color{black}
+}
+
+% redefinir el formato del numero de seccion
+\renewcommand\@seccntformat[1]{
+\fontsize{18}{16}\sffamily
+%\fbox{
+\csname the#1\endcsname
+%fbox}
+\hspace{0.5em}}
+
+% redefinir el formato del titulo de una seccion
+\let\LaTeX@startsection\@startsection
+\renewcommand{\@startsection}[6]{\LaTeX@startsection%
+{#1}{#2}{#3}{#4}{#5}{\raggedright #6}}
+
+%seccion generica
+\renewcommand\section{\@startsection{section}{1}%
+{0pt}{-\baselineskip}{\baselineskip}%
+{\raggedright
+\medskip\fontsize{18}{16}\sffamily}}
+
+% bloque red
+\newcommand\sectionred{\@startsection{section}{1}%
+{0pt}{-\baselineskip}{\baselineskip}%
+{\color{blue}\raggedright
+\textcolor{blue}{\rule{3mm}{0.75cm}}\textcolor{brown}{\rule{3mm}{0.75cm}}
+\medskip\fontsize{18}{16}\sffamily}}
+
+% bloque skyblue
+\newcommand\sectionblue{\@startsection{section}{1}%
+{0pt}{-\baselineskip}{\baselineskip}%
+{\color{blue}\raggedright
+\textcolor{blue}{\rule{3mm}{0.75cm}}\textcolor{verylightskyblue}{\rule{3mm}{0.75cm}}
+\medskip\fontsize{18}{16}\sffamily}}
+
+% bloque naranja
+\newcommand\sectionorange{\@startsection{section}{1}%
+{0pt}{-\baselineskip}{\baselineskip}%
+{\color{blue}\raggedright
+\textcolor{blue}{\rule{3mm}{0.75cm}}\textcolor{lightorange}{\rule{3mm}{0.75cm}}
+\medskip\fontsize{18}{16}\sffamily}}
+
+% bloque verde
+\newcommand\sectiongreen{\@startsection{section}{1}%
+{0pt}{-\baselineskip}{\baselineskip}%
+{\color{blue}\raggedright
+\textcolor{blue}{\rule{3mm}{0.75cm}}\textcolor{limegreen}{\rule{3mm}{0.75cm}}
+\medskip\fontsize{18}{16}\sffamily}}
+
+%subseccion
+\renewcommand\subsection{\@startsection{subsection}{1}%
+{0pt}{-\baselineskip}{\baselineskip}%
+{\raggedright
+\medskip\fontsize{14}{16}\sffamily}}
+
+\newcommand\subsectionblue[1]{\subsection*{\textcolor{blue}{#1}}}
+
+%subsubseccion
+\renewcommand\subsubsection{\@startsection{subsubsection}{1}%
+{0pt}{-\baselineskip}{\baselineskip}%
+{\raggedright
+\medskip\fontsize{12}{16}\sffamily}}
+
+\newcommand\subsubsectionblue[1]{\subsubsection*{\textcolor{blue}{#1}}}
+
+% PART FORMAT
+\newcommand\partred{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  %\textcolor{blue}{\rule{10mm}{0.75cm}}
+  \textcolor{brown}{\rule{20mm}{0.75cm}}
+  \secdef\@part\@spart}
+
+\newcommand\partblue{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  %\textcolor{blue}{\rule{10mm}{0.75cm}}
+  \textcolor{verylightskyblue}{\rule{20mm}{0.75cm}}
+  \secdef\@part\@spart}
+
+\newcommand\partorange{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  %\textcolor{blue}{\rule{10mm}{0.75cm}}
+  \textcolor{lightorange}{\rule{20mm}{0.75cm}}
+  \secdef\@part\@spart}
+
+\newcommand\partgreen{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  %\textcolor{blue}{\rule{10mm}{0.75cm}}
+  \textcolor{limegreen}{\rule{20mm}{0.75cm}}
+  \secdef\@part\@spart}
+
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >-2\relax
+      \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    \markboth{}{}%
+    {\centering
+     \interlinepenalty \@M
+     \normalfont
+     \ifnum \c@secnumdepth >-2\relax
+       \fontsize{30}{16}\sffamily
+       %\huge
+       {\bfseries \textcolor{blue}{\MakeUppercase{\partname~\thepart}}}
+       \par
+       \vskip 20\p@
+     \fi
+     %\Huge %\bfseries
+     \textcolor{blue}{#2}\par}%
+    \@endpart}
+\def\@spart#1{%
+    {\centering
+     \interlinepenalty \@M
+     %\normalfont
+     %\Huge %\bfseries
+     #1\par}%
+    \@endpart}
+\def\@endpart{\vfil\newpage
+              \if@twoside
+                \null
+                \thispagestyle{empty}%
+                \newpage
+              \fi
+              \if@tempswa
+                \twocolumn
+              \fi}
+
+% This is to create a fake chapter (like the acknowledgments).  It doesn't
+% get ennumerated, but it does get added to the Table of Contents (ToC),
+% and since the \chapter* doesn't define the markright or markboth
+% commands, we force it here to do so.
+
+\newcommand{\nochapter}[2][blabla]{%
+  \chapter*{\textcolor{blue}{#2}}%
+  \ifthenelse{\equal{#1}{blabla}}%
+             {%\addcontentsline{toc}{chapter}{\protect\numberline{}{#2}}%
+              \addstarredchapter{#2}
+              \mtcaddchapter{#2}
+              \markboth{\MakeUppercase { #2 }}{\MakeUppercase{ #2 }}%
+              }% one param
+             {%\addcontentsline{toc}{chapter}{\protect\numberline{}{#1}}%
+              \addstarredchapter{#1}
+              \mtcaddchapter{#1}
+              \markboth{\MakeUppercase { #1 }}{\MakeUppercase{ #1 }}%
+              }% two param
+%    \markboth{\MakeUppercase { #1 } }{\MakeUppercase { #1 } }%
+}%nochapter
+
+\newcommand{\noappendix}[2][blabla]{%
+  \chapter*{\textcolor{blue}{#2}}%
+  \stepcounter{chapter}%
+  \ifthenelse{\equal{#1}{blabla}}%
+             {%\addcontentsline{toc}{chapter}{\protect\numberline{\Alph{chapter}}{#2}}%
+              \addstarredchapter{#2}
+              \markboth{\textsc{Appendix}\space\Alph{chapter}.\space\space\MakeUppercase{#2}}%
+                       {\textsc{Appendix}\space\Alph{chapter}.\space\space\MakeUppercase{#2}}%
+              }% one param
+             {%\addcontentsline{toc}{chapter}{\protect\numberline{\Alph{chapter}}{#1}}%
+              \addstarredchapter{#1}
+              \markboth{\textsc{Appendix}\space\Alph{chapter}.\space\space\MakeUppercase{#1}}%
+                       {\textsc{Appendix}\space\Alph{chapter}.\space\space\MakeUppercase{#1}}%
+              }% two param
+%    \markboth{\MakeUppercase { #1 } }{\MakeUppercase { #1 } }%
+}%noappendix
+
+\newcommand{\addappendix}[1]{%
+  \stepcounter{chapter}%
+  %\addcontentsline{toc}{chapter}{\protect\numberline{\Alph{chapter}}{#1}} % Add References to TOC
+  \addstarredchapter{#1}
+  \markboth{\textsc{Appendix}\space\Alph{chapter}.\space\space\MakeUppercase{#1}}%
+           {\textsc{Appendix}\space\Alph{chapter}.\space\space\MakeUppercase{#1}}%
+}%addappendix
+
+%REDEFINIR caption names (fig & table x.x)
+\def\fnum@table{\textcolor{blue}{\small\bfseries\sffamily\tablename\nobreakspace\thetable}}
+\def\fnum@figure{\textcolor{blue}{\small\bfseries\sffamily\figurename\nobreakspace\thefigure}}
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1 #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1 #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+% redefinir los captions (Pep)
+%draftbox
+\newcommand{\mycaption}[4]{
+  \vskip 0.5ex
+
+    \begin{minipage}[c]{0.95\linewidth}%
+      {\caption[#2]{\small\label{#1}\textbf{\sffamily #3} #4}}
+    \end{minipage}
+   %}%
+  %}%
+}%mycaption
+
+\usepackage{algorithmic}
+\usepackage{algorithm}
+%%%% ALGORITHMS
+\newcommand{\hlinea}[1]{\textcolor{blue}{\textbf{#1}}}
+\renewcommand{\algorithmicrequire}{\hlinea{Pre $\equiv$}}
+\renewcommand{\algorithmicensure}{\hlinea{Post $\equiv$}}
+\renewcommand{\algorithmiccomment}[1]{(* #1 *)}
+\renewcommand{\algorithmicend}{\hlinea{end}}
+\renewcommand{\algorithmicif}{\hlinea{if}}
+\renewcommand{\algorithmicthen}{\hlinea{then}}
+\renewcommand{\algorithmicelse}{\hlinea{else}}
+\renewcommand{\algorithmicfor}{\hlinea{for}}
+\renewcommand{\algorithmicforall}{\hlinea{foreach}}
+\renewcommand{\algorithmicdo}{\hlinea{do}}
+\renewcommand{\algorithmicwhile}{\hlinea{while}}
+\renewcommand{\algorithmicloop}{\hlinea{loop}}
+\renewcommand{\algorithmicrepeat}{\hlinea{repeat}}
+\renewcommand{\algorithmicuntil}{\hlinea{until}}
+
+\usepackage{fancyhdr} % To produce nice headings
+
+\pagestyle{fancyplain}
+
+% Better than plain style 'cos we control headings in all pages
+% Even (verso) page and odd (recto) page cells are defined separately
+
+\renewcommand{\chaptermark}[1]{\markboth{Chapter\ \thechapter. #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+
+\lhead[\fancyplain{}{\sffamily\thepage}]{\fancyplain{}{\sffamily\rightmark}}
+\chead{}
+\rhead[\fancyplain{}{\sffamily\leftmark}]{\fancyplain{}{\sffamily\thepage}}
+\lfoot{}
+\cfoot[\fancyplain{\thepage}{}]{\fancyplain{\thepage}{}}
+\rfoot{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Tables-related packages %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array,colortbl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Title and related features %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newcommand{\rl}[1][0ex]{{\avantgarboldHuge\rule[#1]{0pt}{1.75ex}}}
+% \newcommand{\myacute}{\hspace{-1.1ex}\raisebox{1.075ex}{\rotatebox{87.5}{\scalebox{0.6}{$\prime$}}}\hspace{0.5ex}}
+\def\thytitle{Meta-Alignment of Biological Sequences}%
+\def\mytitle{%
+  {META-ALIGNMENT\\%
+   OF\\%
+   BIOLOGICAL SEQUENCES}%
+}%mytitle
+\def\thyadvisor{Xavier Messeguer Peypoch}
+\def\thyadvisordue{Roderic Guig\'{o} i Serra}
+\def\thyauthor{Enrique Blanco Garc\'{i}a}
+\def\thyauthorshort{Enrique Blanco Garc\'{i}a}
+\newcommand{\thydate}{%
+  \ifcase\month\or January\or February\or March\or April\or May\or June%
+               \or July\or August\or September\or October%
+               \or November\or December\fi \space \number\year%
+}%thydate {Month YEAR}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Compute current time using 24Hr. notation %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\count1=\time \divide\count1 by 60 \multiply\count1 by 60 %
+ \count2=\time \advance\count2 by -\count1 %
+ \divide\count1 by 60 %
+ \xdef\currenttime{\the\count1:\ifnum\count2<10 0\fi\the\count2}}
+
+\newcommand{\tstamp}{\textbf{\today\ --\ \currenttime}}
+
+\usepackage{fancyvrb}
+    % This package provides very sophisticated facilities for reading and
+    % writing verbatim TeX code. Users can perform common tasks like changing
+    % font family and size, numbering lines, framing code examples, colouring
+    % text and conditionally processing text.
+\usepackage{comment} % Anything within a comment environment is not shown
+\usepackage{rotating} %
+
+\usepackage[catalan,spanish,english]{babel}
+           %% the last language is the one babel uses by default
+\addto\captionsenglish{
+%NAMES ALWAYS AFTER BABEL:
+\renewcommand\chaptername{\textbf{C}hapter}
+\renewcommand\contentsname{\textcolor{blue}{\textbf{C}ontents}}
+\renewcommand\listtablename{\textcolor{blue}{\textbf{L}ist of Tables}}
+\renewcommand\listfigurename{\textcolor{blue}{\textbf{L}ist of Figures}}
+}
+
+\usepackage{graphicx}
+\usepackage{color}
+
+\usepackage{fancybox}
+
+\setcounter{totalnumber}{1} % setting the maximum number of floats that
+                            % may appear on any page regardless of position
+
+%\newcommand{\draftbox}[1]{%
+%  \ifthenelse{\boolean{LAYOUTflg}}%
+%             {{\setlength{\fboxsep}{0pt}\fbox{#1}}}%
+%             {#1}%
+%}%draftbox
+\newcommand{\draftbox}[1]{#1}
+
+
+\newcommand{\incgraph}[2]{%
+\draftbox{\includegraphics[#1]%
+{#2.png}}}
+
+\newcommand{\inclogos}[4][jpg]{%
+             \draftbox{\includegraphics[height=#2cm]{ps/#4.#1}}
+}%inclogos
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\usepackage{makeidx} % To make a subject index
+
+% Enter URLs like this: \url{http://genome.imim.es/}
+
+\usepackage[pdftex,%
+setpagesize=true,%
+colorlinks=true,%
+pdfhighlight=/P,%
+linktocpage=true,%
+plainpages=false,%
+breaklinks=true]{hyperref}
+\hypersetup{linkcolor=blue,%
+anchorcolor=yellow,%
+citecolor=green,%
+menucolor=cyan,%
+pagecolor=red,%
+urlcolor=magenta}
+\usepackage{url} 
+
+%%% WARNING: Ensure that there are not a single comment ('%') within any
+%%%          of the fields of glossary items, specially within 'description'.
+%%%          The glossary package concatenates all the strings witin those
+%%%          fields, therefore you may end up commenting from where the '%'
+%%%          is to the end without noticing it and obtaining partial glossary
+%%%          items in the final document.
+\usepackage[style=altlist,header=none,%
+            border=none,number=none,%
+            toc=false,hyper=false]{glossary} % To make a glossary
+\makeglossary
+
+\newglossarytype{weblink}{wlt}{wln}
+\makeweblink
+
+%%% WARNING: Take care with the length of the string within the description
+%%%          field for webitems and webitemslink, which is limited by default
+%%%          to 1024 characters.
+%%%          One workaround is to make new defs outside the item
+%%%          and protect them within it, for instance:
+%%%           \def\bla{......}
+%%%           \weblink{name=...,description={... \protect\bla ...}
+%%
+\newcommand{\webitem}[4][blabla]{%
+  {#2}%
+  \weblink{name={#3},%
+           description={{#4}\protect\mbox{}\protect\newline%
+                        \protect\vskip -0.25ex%
+                        \protect\centerline{\protect\small{}#2}%
+                        \protect\vskip 1.8ex},%
+           sort={\protect\ifthenelse{\protect\equal{#1}{blabla}}{#3}{#1}}}%
+               %{\protect\srtby}%
+}%webitem
+\newcommand{\webitemlink}[5][blabla]{%
+  see Web Glossary, page~\pageref{#5}%
+  \weblink{name={#3},%
+           description={{\protect\label{#5}#4}\protect\mbox{}\protect\newline%
+                        \protect\vskip -0.25ex%
+                        \protect\centerline{\protect\small{}#2}%
+                        \protect\vskip 1.8ex},%
+           sort={\protect\ifthenelse{\protect\equal{#1}{blabla}}{#3}{#1}}}%
+               %{\protect\srtby}%
+}%webitem
+
+\setpagelayout % this command is defined in the formatting files...
+
+\setlength{\parskip}{1ex plus0.2ex minus0.2ex}
+
+\date{} % Keep it empty
+
+\setlength{\footnotesep}{2ex} % Vertical spacing between footnotes
+
+\renewcommand{\footnoterule}{\noindent\rule{5cm}{.1ex}\vspace{1.5ex}}
+             % Rule height, width and space
+
+\usepackage{nextpage}
+\newcommand{\clearemptydoublepage}{%
+    \cleartooddpage[\thispagestyle{empty}]
+    %
+    %{\newpage{\thispagestyle{empty}\clearpage}}% Not working with biblio/index
+    %
+    %%%\ifthenelse{\isodd{\value{page}}}% Not working as page is set just now
+    %%%{\newpage{\thispagestyle{empty}\clearpage}}%
+    %%%{\clearpage}%
+}%clearemptydoublepage
+
+%%% Marking things to do or to upate with red bolded text.
+
+\newcommand{\makebgpage}[2]{%
+  \protect\thispagestyle{empty}%
+  \protect\enlargethispage{10cm}%
+  \ \vskip -2.75cm%
+  \hspace{-#2cm}%
+  \begin{tabular}[t]{@{}c@{}}%
+    \colorbox{covergreen}{%
+     \begin{minipage}[b][\thesisHeight][c]{\thesisWidth}%
+      \color{coverwhite}%
+      \input #1%
+     \end{minipage}%
+    }%colorbox
+  \end{tabular}%
+}%makebgpage
+
+\newcommand{\bb}[1]{\textbf{#1}} % shorther command for boldface
+\newcommand{\ver}{\textsc}
+
+%% DARKGREEN  : #008080 -> Red 0 : Green 128 : Blue 128
+% \definecolor{darkgreen} {rgb}{0.00000,0.50196,0.50196}
+%% LIGHTGREEN : #009F9F -> Red 0 : Green 159 : Blue 159
+% \definecolor{lightgreen}{rgb}{0.00000,0.62353,0.62353}
+
+% \definecolor{covergreen}{cmyk}{1.0,0.8,0.0,0.0}
+\definecolor{BLUE}   {cmyk}{1,1,1,1}
+\definecolor{covergreen}  {rgb} {0,0,0}
+\definecolor{coverwhite}  {cmyk}{0.0,0.0,0.0,0.0}
+\definecolor{paperwhite}  {cmyk}{0.0,0.0,0.0,0.0}
+\definecolor{darkgreen}   {rgb} {0.00000,0.50196,0.50196}
+\definecolor{brightyellow}{cmyk}{0.0,0.0,0.25,0.0}
+
+%%%%%%%%%%%%%%%%%%%
+%%% Definitions %%%
+%%%%%%%%%%%%%%%%%%%
+
+
+\providecommand{\BiBTeX}{B\kern-.05em{\scshape i\kern-.025emb}\kern-.08em\TeX}
+
+\newcommand{\units}[2]{\mbox{{#1}\hspace{0.25ex}#2}}%
+\newcommand{\kda}[1]{\units{#1}{kDa}}
+\newcommand{\bp} [1]{\units{#1}{bp}}
+\newcommand{\kbp}[1]{\units{#1}{kb}}
+\newcommand{\mbp}[1]{\units{#1}{Mb}}
+\newcommand{\gbp}[1]{\units{#1}{Gb}}
+\newcommand{\prm}[1]{${#1}^{\prime}$}
+%
+\newcommand{\U}[1]{\textsc{\sffamily U#1}}
+% \def\Uii{\textsc{\sffamily U2}}
+% \def\Uxii{\textsc{\sffamily U12}}
+%
+\newcommand{\gene}[1]{\textsl{\textsf{#1}}}
+\def\genefont{slanted sans-serif font}
+\newcommand{\prot}[1]{\textsf{#1}}
+\def\protfont{upright sans-serif font}
+\newcommand{\seq}[1]{\textsc{\sffamily #1}}
+
+\newcommand{\prog}[1]{\texttt{#1}} %\protect\index{#1}}
+\def\progfont{monospaced serif font}
+\newcommand{\db}[1]{\textsc{\textsf{#1}}} %\protect\index{#1}}
+\def\dbfont{SmallCaps sans-serif font}
+\newcommand{\spc}[1]{\textit{#1}}
+\newcommand{\journal}[1]{\textit{#1}}
+%
+%\def\spcfont{italic shape}
+%
+\def\etal{\textit{et~al}\/}
+%
+\def\gff{\prog{GFF}}
+\def\ps{\textsc{PostScript}}
+\def\bash{\prog{bash}}
+\def\awk{\prog{awk}}
+\def\gawk{\prog{gawk}}
+\def\make{\prog{make}}
+\def\perl{\prog{perl}}
+\def\google{\prog{Google}}
+\def\rmask{\prog{RepeatMasker}}
+\def\geneid{\prog{geneid}}
+\def\genscan{\prog{genscan}}
+\def\sgp{\prog{SGP1}}
+\def\SGP{\prog{SGP2}}
+\def\TWINSCAN{\prog{Twinscan}}
+\def\SLAM{\prog{SLAM}}
+\def\gps{\prog{gff2ps}}
+\def\aps{\prog{gff2aplot}}
+\def\compi{\prog{compi}}
+
+\def\abinitio{``\textit{ab initio}''}
+\def\Abinitio{``\textit{Ab initio}''}
+\def\embl{\db{EMBL}}
+\def\genbank{\db{GenBank}}
+\def\refseq{\db{RefSeq}}
+\def\ensembl{\db{Ensembl}}
+\def\ensmart{\db{EnsMart}}
+\def\gp{\db{Golden Path}}
+\def\ucscgb{\db{UCSC Genome Browser}}
+\def\ncbimv{\db{NCBI Map Viewer}}
+\def\homologene{\db{HomoloGene}}
+\def\go{\db{Gene Ontology}}
+\def\dbsnp{\db{dbSNP}}
+
+% Species
+\def\Hsap{\spc{Homo sapiens}} %\protect\index{Homo sapiens}}
+\def\hsap{\spc{H. sapiens}} %\protect\index{Homo sapiens}}
+
+\def\Mmus{\spc{Mus musculus}} %\protect\index{Mus musculus}}
+\def\mmus{\spc{M. musculus}} %\protect\index{Mus musculus}}
+
+\def\Rnor{\spc{Rattus norvegicus}} %\protect\index{Rattus norvegicus}}
+\def\rnor{\spc{R. norvegicus}} %\protect\index{Rattus norvegicus}}
+
+\def\Ggal{\spc{Gallus gallus}} %\protect\index{Gallus gallus}}
+\def\ggal{\spc{G. gallus}} %\protect\index{Gallus gallus}}
+
+\def\Dmel{\spc{Drosophila melanogaster}} %\protect\index{Drosophila melanogaster}}
+\def\dmel{\spc{D. melanogaster}} %\protect\index{Drosophila melanogaster}}
+
+\def\Agam{\spc{Anopheles gambiae}} %\protect\index{Anopheles gambiae}}
+\def\agam{\spc{A. gambiae}} %\protect\index{Anopheles gambiae}}
+
+\def\Cele{\spc{Caenorhabditis elegans}} %\protect\index{Caenorhabditis elegans}}
+\def\cele{\spc{C. elegans}} %\protect\index{Caenorhabditis elegans}}
+
+\def\Scer{\spc{Saccharomyces cerevisiae}} %\protect\index{Saccharomyces cerevisiae}}
+\def\scer{\spc{S. cerevisiae}} %\protect\index{Saccharomyces cerevisiae}}
+
+\def\Atha{\spc{Arabidopsis thaliana}} %\protect\index{Arabidopsis thaliana}}
+\def\atha{\spc{A. thaliana}} %\protect\index{Arabidopsis thaliana}}
+
+\def\Tnig{\spc{Tetraodon nigroviridis}} %\protect\index{Tetraodon nigroviridis}}
+\def\tnig{\spc{T. nigroviridis}} %\protect\index{Tetraodon nigroviridis}}
+
+\def\Trub{\spc{Takifugu rubripes}} %\protect\index{Takifugu rubripes}}
+\def\trub{\spc{T. rubripes}} %\protect\index{Takifugu rubripes}}
+
+%%%%%%%%%%%%%%%%%%%
+%%% Hyphenation %%%
+%%%%%%%%%%%%%%%%%%%
+
+\hyphenation{bio-in-for-ma-tics ge-no-me ge-no-mic cgi-cmd taf-fi-le re-gu-la-to-ry boun-da-ries trans-la-ta-ble me-thod me-thods ca-pa-bi-li-ty ca-pa-bi-li-ties dis-cri-mi-nant mo-di-fy cons-ti-tu-ted co-ding spe-ci-fi-ca-lly e-va-lu-a-ted e-va-lu-a-tion re-cog-ni-ze re-cog-ni-zed com-pa-ra-ti-ve}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% To process only desired chapters %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\includeonly{Introduction/introduction,Objectives/objectives,
+%Results/results,Methods/methods,Discussion/discussion,Conclusions/conclusions}
+
+\sloppy % word spacings are allowed to stretch more generously than usual
+        % so that paragraphs are broken up into lines with fewer word divisions.
+
+% black+grey+white
+\definecolor{black}              {cmyk}{0.00,0.00,0.00,1.00}
+\definecolor{verydarkgrey}       {cmyk}{0.00,0.00,0.00,0.80}
+\definecolor{darkgrey}           {cmyk}{0.00,0.00,0.00,0.60}
+\definecolor{grey}               {cmyk}{0.00,0.00,0.00,0.40}
+\definecolor{lightgrey}          {cmyk}{0.00,0.00,0.00,0.20}
+\definecolor{verylightgrey}      {cmyk}{0.00,0.00,0.00,0.10}
+\definecolor{white}              {cmyk}{0.00,0.00,0.00,0.00}
+% magenta
+\definecolor{verydarkmagenta}    {cmyk}{0.00,1.00,0.00,0.30}
+\definecolor{darkmagenta}        {cmyk}{0.00,0.80,0.00,0.05}
+\definecolor{magenta}            {cmyk}{0.00,0.60,0.00,0.00}
+\definecolor{lightmagenta}       {cmyk}{0.00,0.40,0.00,0.00}
+\definecolor{verylightmagenta}   {cmyk}{0.00,0.20,0.00,0.00}
+% violet
+\definecolor{verydarkviolet}     {cmyk}{0.45,0.85,0.00,0.00}
+\definecolor{darkviolet}         {cmyk}{0.37,0.75,0.00,0.00}
+\definecolor{violet}             {cmyk}{0.30,0.65,0.00,0.00}
+\definecolor{lightviolet}        {cmyk}{0.22,0.55,0.00,0.00}
+\definecolor{verylightviolet}    {cmyk}{0.15,0.45,0.00,0.00}
+% blue
+\definecolor{verydarkblue}       {cmyk}{1.00,1.00,0.00,0.15}
+\definecolor{darkblue}           {cmyk}{0.90,0.90,0.00,0.00}
+\definecolor{blue}               {cmyk}{0.75,0.75,0.00,0.00}
+\definecolor{lightblue}          {cmyk}{0.50,0.50,0.00,0.00}
+\definecolor{verylightblue}      {cmyk}{0.30,0.30,0.00,0.00}
+% skyblue
+\definecolor{verydarkskyblue}    {cmyk}{0.90,0.50,0.00,0.10}
+\definecolor{darkskyblue}        {cmyk}{0.75,0.45,0.00,0.00}
+\definecolor{skyblue}            {cmyk}{0.60,0.38,0.00,0.00}
+\definecolor{lightskyblue}       {cmyk}{0.45,0.25,0.00,0.00}
+\definecolor{verylightskyblue}   {cmyk}{0.30,0.15,0.00,0.00}
+% cyan
+\definecolor{verydarkcyan}       {cmyk}{1.00,0.00,0.00,0.00}
+\definecolor{darkcyan}           {cmyk}{0.80,0.00,0.00,0.00}
+\definecolor{cyan}               {cmyk}{0.60,0.00,0.00,0.00}
+\definecolor{lightcyan}          {cmyk}{0.40,0.00,0.00,0.00}
+\definecolor{verylightcyan}      {cmyk}{0.20,0.00,0.00,0.00}
+% seagreen
+\definecolor{verydarkseagreen}   {cmyk}{1.00,0.00,0.60,0.10}
+\definecolor{darkseagreen}       {cmyk}{0.90,0.00,0.54,0.00}
+\definecolor{seagreen}           {cmyk}{0.75,0.00,0.45,0.00}
+\definecolor{lightseagreen}      {cmyk}{0.50,0.00,0.30,0.00}
+\definecolor{verylightseagreen}  {cmyk}{0.25,0.00,0.15,0.00}
+% green
+\definecolor{verydarkgreen}      {cmyk}{1.00,0.00,1.00,0.00}
+\definecolor{darkgreen}          {cmyk}{0.80,0.00,0.80,0.00}
+\definecolor{green}              {cmyk}{0.60,0.00,0.60,0.00}
+\definecolor{lightgreen}         {cmyk}{0.40,0.00,0.40,0.00}
+\definecolor{verylightgreen}     {cmyk}{0.20,0.00,0.20,0.00}
+% limegreen
+\definecolor{verydarklimegreen}  {cmyk}{0.50,0.00,1.00,0.10}
+\definecolor{darklimegreen}      {cmyk}{0.40,0.00,0.95,0.00}
+\definecolor{limegreen}          {cmyk}{0.30,0.00,0.80,0.00}
+\definecolor{lightlimegreen}     {cmyk}{0.20,0.00,0.65,0.00}
+\definecolor{verylightlimegreen} {cmyk}{0.10,0.00,0.50,0.00}
+% yellow
+\definecolor{verydarkyellow}     {cmyk}{0.00,0.00,1.00,0.25}
+\definecolor{darkyellow}         {cmyk}{0.00,0.00,1.00,0.10}
+\definecolor{yellow}             {cmyk}{0.00,0.00,1.00,0.00}
+\definecolor{lightyellow}        {cmyk}{0.00,0.00,0.50,0.00}
+\definecolor{verylightyellow}    {cmyk}{0.00,0.00,0.25,0.00}
+% orange
+\definecolor{verydarkorange}     {cmyk}{0.00,0.55,0.65,0.20}
+\definecolor{darkorange}         {cmyk}{0.00,0.50,0.70,0.00}
+\definecolor{orange}             {cmyk}{0.00,0.40,0.75,0.00}
+\definecolor{lightorange}        {cmyk}{0.00,0.30,0.80,0.00}
+\definecolor{verylightorange}    {cmyk}{0.00,0.20,0.85,0.00}
+% red
+\definecolor{verydarkred}        {cmyk}{0.00,1.00,1.00,0.10}
+\definecolor{darkred}            {cmyk}{0.00,0.80,0.80,0.00}
+\definecolor{red}                {cmyk}{0.00,0.60,0.60,0.00}
+\definecolor{lightred}           {cmyk}{0.00,0.40,0.40,0.00}
+\definecolor{verylightred}       {cmyk}{0.00,0.20,0.20,0.00}
+% brown
+\definecolor{verydarkbrown}      {cmyk}{0.00,0.85,1.00,0.70}
+\definecolor{darkbrown}          {cmyk}{0.00,0.75,1.00,0.50}
+\definecolor{brown}              {cmyk}{0.00,0.70,1.00,0.30}
+\definecolor{lightbrown}         {cmyk}{0.30,0.60,0.70,0.00}
+\definecolor{verylightbrown}     {cmyk}{0.15,0.45,0.55,0.00}
+
+\usepackage[undotted]{minitoc}
+\renewcommand{\mtctitle}{}
+
+\usepackage{lettrine}
+
+% ITEMIZES
+
+\newenvironment{mitemize}{\begin{dinglist}{"F5}}{\end{dinglist}}
+\newenvironment{menumerate}{\begin{dingautolist}{'254}}{\end{dingautolist}}
+
+\makeatother
+
+
+%%% Body: actual text with some control commands %%%
+% The whole writing starts here divided into
+%   frontmatter, mainmatter and backmatter.
+% Each \include command searches for a .tex file in a directory
+
+\begin{document}
+
+%%% FRONTMATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frontmatter
+% NOTE (1 of 3): Explicit numbering style definition to ensure
+% mkindex/hyperref to link pages ok (and avoiding duplicate labels...)
+\pagenumbering{alph}
+
+
+
+%%% COVER PAGE
+    \thispagestyle{empty}%
+\makebgpage{sections/bookcover}{2.5}%
+\newpage%
+\ \thispagestyle{empty}%\clearemptydoublepage
+\newpage%
+
+
+
+
+% NOTE (2 of 3): Explicit numbering style definition to ensure
+% mkindex/hyperref to link pages ok (and avoiding duplicate labels...)
+\pagenumbering{roman}
+
+%%% Title page and related pages
+
+    \include{sections/title}        % Thesis title
+    \maketitle                      % Print thesis title
+
+{   % This version printing information
+    \thispagestyle{empty}
+    \input{sections/printedat}      % 'Printed at' information 
+    \clearemptydoublepage
+}   % End printing information
+
+    \include{sections/signatures}   % Tutor's signature (yours too!)
+    \clearemptydoublepage
+    \include{sections/tomy}         % Dedicatory
+    \clearemptydoublepage
+
+%%% Table Of Contents: DO NOT MOVE MINITOC FROM HERE
+    \dominitoc[c]
+    \nomtcrule
+
+    \include{sections/preface}      % Preface
+    \clearemptydoublepage
+{
+   % Set 'parskip' for a more compact index layout
+    \setlength{\parskip}{0.4ex plus0.2ex minus0.2ex}
+
+    \tableofcontents               % Table Of Content (TOC)
+    \addstarredchapter{Contents}
+    \clearemptydoublepage
+
+    \listoftables                  % List of Tables (LOT)
+    \addstarredchapter{List of Tables}
+    \clearemptydoublepage
+
+    \listoffigures                 % List of Figures (LOF)
+    \addstarredchapter{List of Figures}
+    \clearemptydoublepage
+} % End TOCs
+
+%%% Acknows, comments and abstracts
+
+        \include{sections/acknowledgements}  % Say thanks here!
+        \clearemptydoublepage
+        \include{sections/theabstracts}      % Sum it all up!
+        \clearemptydoublepage
+  \thispagestyle{empty}\clearemptydoublepage % leaving an empty sheet between front and main 
+  \thispagestyle{empty}\clearemptydoublepage
+
+%%% MAINMATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+% NOTE (3 of 3): Explicit numbering style definition to ensure
+% mkindex/hyperref to link pages ok (and avoiding duplicate labels...)
+\pagenumbering{arabic}
+
+%BIBLIO in blue
+\renewcommand{\bibname}{\textcolor{blue}{Bibliography}}
+
+%%% BLOCK 1
+\partblue[Preliminaries]{\textbf{P}reliminaries}
+
+    \include{sections/introduction}    % Thesis Project Management
+    \clearemptydoublepage
+
+    \include{sections/genomics}        % Introduction about biology and bioinformatics
+    \clearemptydoublepage
+
+%%% BLOCK 2
+\partorange[State of the Art]{\textbf{S}tate of the Art}
+
+    \include{sections/algorithms}  % Classical sequence alignment bibliography
+    \clearemptydoublepage
+
+    \include{sections/genefinding} % Gene-finding and promoter characterization
+    \clearemptydoublepage
+
+%%% BLOCK 3
+\partgreen[Meta-Alignment of Sequences]{\textbf{M}eta-Alignment of Sequences}
+
+    \include{sections/meta}  % TF-map alignment 
+    \clearemptydoublepage
+
+    \include{sections/mmeta} % Multiple TF-map alignment
+    \clearemptydoublepage
+
+    \include{sections/conclusions}     % Your contribution in short points
+    \clearemptydoublepage
+
+    %% Still do not understand quite well why this is not placed properly
+    %% between sections and appendices. The hack here is pretty simple
+    %% and seems to work, just place those commands before the last section
+    %% include.
+    %\addtocontents{toc}{\protect\clearpage}%
+    %\addtocontents{toc}{\protect\ \protect\vskip 5ex}%
+    %\addtocontents{toc}{\protect\noindent%\hspace*{\protect\fill}%
+    %                    {APPENDICES}}%
+    %\addtocontents{toc}{\protect\vskip 3ex}%
+    %%% the following trick seems to fix the above reported behaviour
+    %\thispagestyle{empty}
+    %\clearemptydoublepage
+	%\chapter*{\textcolor{blue}{APPENDICES}}    
+
+%%% BLOCK 4    
+\partred{\textbf{A}ppendices}
+    \thispagestyle{empty}
+    \clearemptydoublepage
+
+%%% APENDICES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix % Start appendices here %
+\setcounter{chapter}{0}
+
+    \include{sections/cv}              % Your curriculum vitae
+    \clearemptydoublepage
+
+    \include{sections/software}        % Software and databases webs
+    \clearemptydoublepage
+
+    \include{sections/publications}    % List of articles, books and posters
+    \clearemptydoublepage
+
+    \include{sections/fpublications}   % Full articles and chapter books
+    \clearemptydoublepage
+
+    \include{sections/posters}         % Full posters
+    \clearemptydoublepage
+
+    \include{sections/miscellanea}     % Technical stuff about LaTeX
+    \clearemptydoublepage              % Make others' life easier by sharing!!!
+
+%%% BACKMATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\backmatter
+
+%%% Web Site definitions
+    \phantomsection % fixes the link anchor
+    \renewcommand{\glossaryname}{WebSite References}%
+    \renewcommand{\glossarypreamble}%
+                 {\label{sec:webrefs}%
+                  \addappendix{\glossaryname}%
+                 }% glossarypreamble
+    \renewcommand{\glossarypostamble}{}%
+    \renewcommand{\gloitem}[1]{\item[\avantgarbold{}#1]\mbox{}\par}
+    \printweblink                          % Print URLs Index
+    \clearemptydoublepage
+
+%%% Subject Index
+    \renewcommand{\indexname}{Index}%
+    \phantomsection % fixes the link anchor
+    \addappendix{\indexname}%
+    \printindex  % Print Subject Index
+    \clearemptydoublepage
+
+%%% CLOSING NICETIES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \phantomsection % fixes the link anchor
+    \include{sections/notes}               % Courtesy blank pages
+
+    \include{sections/series}              % Thesis series in the lab
+
+%% BACK COVER
+\newpage%
+\pagestyle{empty}\hspace{1ex}\\%
+\newpage%
+\thispagestyle{empty}%
+\makebgpage{sections/bookback}{1.5}%
+
+
+\end{document}
+
+%%% Congratulations, you made it!!! Look for a postdoc now!!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        1         2         3         4         5         6         7         8
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,32 @@
+\subsubsection{Paraboloide horizontal cilíndrico}
+\begin{figure}[h]
+    \centering
+	\tdplotsetmaincoords{60}{110}
+	\begin{tikzpicture}[tdplot_main_coords,scale=0.85]
+		\pgfmathsetmacro{\step}{0.01}
+		%%% Coordinate axis
+		\draw[thick,->] (0,0,0) -- (2.5,0,0) node [below left] {\footnotesize$x$};
+		\draw[dashed] (0,0,0) -- (-2.5,0,0);
+		\draw[thick,->] (0,0,0) -- (0,4.5,0) node [right] {\footnotesize$y$};
+		\draw[dashed] (0,0,0) -- (0,-0.5,0);
+		\draw[thick] (0,0,0.0) -- (0,0,4.0);
+		% Region of integration
+		\draw[gray,thick,fill=yellow,opacity=0.35] (2,0,0) -- (2,4,0) -- (-2,4,0) -- (-2,0,0) -- cycle;
+		\draw[blue,thick,opacity=0.5] (2,0,0) -- (2,4,0) -- (-2,4,0) -- (-2,0,0) -- cycle;
+		% The curves slicing the surface
+		\draw[blue,thick,opacity=0.5] plot[domain=-2:2,smooth,variable=\t] ({\t},{0},{4.0 - \t*\t}); 
+		% The surface
+		\foreach \y in {0,\step,...,4.0}{
+			\draw[cyan,thick,opacity=0.25] plot[domain=-2:2,smooth,variable=\t] ({\t},{\y},{4.0 - \t*\t}); 
+		}
+		% The curves slicing the surface
+		\draw[blue,thick,opacity=0.5] plot[domain=-2:2,smooth,variable=\t] ({\t},{4.0},{4.0 - \t*\t}); 
+		%
+		\node[blue,above right] at (0,2.5,4.125) {$z = 4 - x^2$};
+		% Last part of the z axis
+		\draw[thick,->] (0,0,4.0) -- (0,0,4.5) node [above] {\footnotesize$z$};	
+	\end{tikzpicture}
+
+    \caption{Paraboloide horizontal cilíndrico}
+    \label{fig:parabol-cilind}
+\end{figure}

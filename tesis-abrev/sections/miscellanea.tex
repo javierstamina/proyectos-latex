@@ -1,0 +1,186 @@
+%%
+%% $Id: miscellanea.tex 11 2005-03-29 00:58:58Z jabril $
+%%
+
+\noappendix{Miscellanea}
+
+This thesis layout is largely derived from the \LaTeX\ template
+created by Robert Castelo in 2002\footnote{R. Castelo, April
+2002.\newline\hspace*{1cm}''The Discrete Acyclic Digraph Markov Model in Data
+Mining''\newline\hspace*{1cm}Faculteit Wiskunde en Informatica, Universiteit
+Utrecht}.  His templates were extended by Sergi Castellano and
+Gen\'{\i}s Parra for their theses. Josep Francesc Abril substantially 
+improved those files, creating an excellent automatical framework that 
+produces a variety of different formats and layouts. Here, I provide some 
+comments on his version and the modifications I incorporated to, and the 
+source code for download.
+
+\index{software!typesetting!latex@\LaTeX|(}%
+\sectionred*{Technical comments}
+
+This book was typeset with GNU \prog{emacs} 21.3.1 in \LaTeX\ mode and
+converted to PDF with \prog{pdflatex} 3.14159-1.10b (Web2C 7.4.5). All
+running on a linux box with Red Hat Fedora Core 2 and kernel
+2.6.9-1.6. \LaTeX\ is a document preparation system, powerful, robust
+and able to achieve professional results \citep{lamport:1994a}. However,
+the learning curve may be stiff. 
+
+The main document, \prog{thesis.tex}, depends on several \LaTeX\
+files---including each chapter, the tables and few \ps{} figures---,
+but it also depends on other files---such as style files, hacked
+\LaTeX\ packages, several bitmaps and the PDF files for the attached
+papers. Furthermore, \prog{pdflatex} had to be run several times,
+\index{software!typesetting!pdflatex@\prog{pdflatex}}%
+together with \BiBTeX\ (to produce the bibliography chapter),
+\index{software!typesetting!bibtex@\BiBTeX}%
+\prog{makeindex} (to build the index and the web glossary), 
+\prog{thumbpdf} (to generate the main PDF document thumbnails),
+\index{software!typesetting!thumbpdf@\prog{thumbpdf}}%
+and few \perl{} scripts. A \prog{Makefile} was written to automatize
+the compilation process of the whole document. In fact, the
+\prog{Makefile} was extended to produce four versions of the main
+document. The ``\textsl{draft}'' version does not include figures and
+the PDF files for the papers, displaying crop marks and boxes
+around several elements (such as the area reserved for the
+pictures). The ``\textsl{proofs}'', where everything is included but
+crop marks and boxes are kept, and different hyperlink types use
+different colors. The ``\textsl{pdf}'' version is the electronic
+version in which all the hyperlinks are marked in blue color, crop
+marks are disabled. Finally, the ``\textsl{press}'' version is very
+similar to the ``\textsl{pdf}'' one, currently the only difference
+is that all the hyperlinks are black. The \prog{Makefile}
+also includes a rule to build the final book ``\textsl{cover}'', which
+recycles the \prog{abstract.tex} file and takes some customization
+from the same style file as the main \prog{thesis.tex} file.
+
+The compilation of a complete version of this document takes about
+\units{600}{seconds}---of course, the ``\textsl{draft}'' version takes much
+less---with an AMD Athlon 64 processor 3200+, with \units{512}{KB} of
+RAM. This is mainly due to the several steps required to ensure that
+every reference, index and so on, is in place. The basic build series
+of commands is the following: an initial \prog{pdflatex}, a \BiBTeX\
+run to produce the bibliography, a second run of \prog{pdflatex} to
+include it, one call to \prog{makeindex} (for the Web Glossary), 
+a third run of \prog{pdflatex} to include the
+glossary, another call to \prog{makeindex} (to generate the final
+index) and to \prog{pdflatex}, then \prog{makeindex} and
+\prog{pdflatex} are run again, an extra run of \prog{pdflatex} is
+followed by \prog{thumbpdf}, and a final \prog{pdflatex} to obtain the
+finished document. If any problem was found, like missing references,
+an extra round of \prog{pdflatex}, \BiBTeX\ and \prog{pdflatex} is
+performed by the \prog{Makefile}.
+
+Here you can find the version of some of the programs refereed above:
+\BiBTeX\ version 0.99c (Web2C 7.4.5), \prog{thumbpdf} version 3.2
+(2002/05/26), and \prog{makeindex} version 2.14 (2002/10/02).
+
+
+\sectionred*{\LaTeX\ Packages}
+
+As there are four versions of the document, the \prog{ifthen} package was
+used to define version specific parameters, as well as to include
+different files. The package \prog{geometry} facilitates the
+definition of the page layout. The current document original dimensions
+for both, the electronic and printed versions, are \units{170}{mm}
+width by \units{240}{mm} height.  The ``\textsl{cover}'' requires
+\prog{calc} to calculate automatically the total width for the page
+layout, which includes the front and the back covers and the spine
+width. The main document basic font size is the default value for the
+``\texttt{book}'' document class, \units{10}{pt}.
+
+The \prog{crop} package is usefull to define the trimming marks for
+the ``\textsl{draft}'' and ``\textsl{proofs}'' versions of this
+document. It distinguishes between the logical page, the page sizes
+defined by the user, and the physical page, the page size for the
+hardcopy. The \prog{layout} package is used in the ``\textsl{draft}''
+version to show on the first page the \LaTeX\ variable settings
+controlling the page layout. Another useful package has been
+\prog{nextpage}, which provides additional
+``\prog{clear{\ldots}page}'' commands that ensure to get empty even
+pages at the end of chapters---and of course, to ensure that all
+chapters begin at odd pages---, even with automatically generated
+sections like the Bibliography and the Index.
+
+The \prog{babel} package provides a set of options that allow the user
+to choose the language(s) in which the document will be typeset, for
+instance language-specific hyphenation patterns. The default language
+was set to ``\texttt{english}'', while ``\texttt{catalan}'' and
+``\texttt{spanish}'' were also loaded for using them for the
+corresponding translations of the \textsc{Abstract}.
+
+When working with \prog{pdflatex} there are three unvaluable packages:
+\prog{pdfpages}, which makes it easy to embed external PDF documents,
+such as the attached publications;
+\prog{thumbpdf}, it must be included in files for which a user wants
+to generate thumbnails (which are created by the \prog{thumbpdf}
+program); and \prog{hyperref}, which extends the functionality of all
+the \LaTeX{} cross-referencing commands to produce \prog{special}
+commands which a driver can turn into hypertext links.  To protect URL
+characters we must load the \prog{url} package, unless we have already provided
+\prog{hyperref}. This package has its own version of the \prog{url}
+macro, enhanced to provide clickable URLs.
+
+To include \ps{} figures one needs \prog{graphics} and/or
+\prog{graphicx}. Those packages are modified by
+\prog{pdflatex} so that they are able to include bitmaps
+(PNGs, JPEGs, and so on) and PDF files into the document. \prog{color}
+facilitates the specification of user-defined colors (such as the
+cover green shades). Figures generated with \LaTeX\ can use any of the
+following packages: \prog{pstricks}, \prog{pstcol}, \prog{multido}.
+
+The bibliography was produced with \BiBTeX. The package \prog{natbib}
+(NATural sciences BIBliography) provides both author-year and
+numerical citations; it makes possible to define different
+citation styles. We have set the following options:
+``\texttt{round}'', to put citations within parenthesis;
+``\texttt{colon}'', to separate multiple citations with colons;
+``\texttt{authoryear}'' to show author and year citations (instead of
+numerical citations); and the option ``\texttt{sectionbib}'' to use
+the package \prog{chapterbib}. The style ``\texttt{plainnat}'' was then applied
+to format the bibliography. The package \prog{chapterbib} allows to include
+a bibliography for each chapter. The package \prog{minitoc} creates
+a mini table of contents for each chapter as well. 
+
+\prog{makeidx} provides the macros required to make a subject
+index. To show the capital letter section headings, few variables were
+redefined on an auxiliary file (\prog{header.ist}).
+One glossary was generated for this document: the web references. 
+The package \prog{glossary} allowed us to customize the format of this 
+section.
+
+We also defined a style file named \prog{mythesis.sty}. It loads the
+following font packages: \prog{fontenc} (with ``\texttt{T1}'' option),
+to set extended font encoding (accents and so on); \prog{textcomp}, to
+include some extra symbols, such as the Euro symbol for instance;
+\prog{pifont}, for \textsc{Symbol} and \textsc{Zapf Dingbats} fonts;
+\prog{charter}, with which roman family is set to \textsc{BitStream-Charter}; 
+\prog{helvet}, with which sans-serif family is set to \textsc{Helvetica}; 
+\prog{euler}, with which formulas are set to \textsc{Euler}; 
+and \prog{courier}, to set typewriter family to \textsc{Courier}. 
+Other packages that were loaded are: \prog{fancyhdr}, to produce nice
+headings; \prog{fancyvrb}, to extend the \prog{verbatim} environment;
+\prog{comment}, to hide parts of the original \LaTeX\ files;
+\prog{rotating}, to rotate boxes of text; and \prog{multirow}, to get
+multirow cells within the \prog{tabular} environment.
+%; and \prog{multicol} 
+\index{software!typesetting!latex@\LaTeX|)}%
+
+
+\sectionred*{Getting the template files}
+
+You are free to copy, modify and distribute the template files of this
+thesis, under the terms of the GNU Free Documentation License as
+published by the Free Software Foundation.  Any script bundled in this
+distribution, including the \prog{Makefile}, is under the terms of the
+GNU General Public License.\index{GNU-GPL} The template for this thesis
+as well as the DVD related files are available from:
+
+\centerline{\url{http://genome.imim.es/~eblanco/MyThesis/}}
+
+
+%%%%%%%%%%%%%%%%%%
+%%% References for this chapter
+%%% ENCERRAR ENTRE LLAVES PARA EVITAR PROBLEMAS
+\bibliographystyle{plainnat}
+{\bibliography{sections/bibliography}}
+

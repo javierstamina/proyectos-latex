@@ -1,0 +1,49 @@
+%%%
+%%%  $Id$
+%%%
+\documentclass{article}
+
+\usepackage[a4paper,noheadfoot,margin=1cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{charter} % roman: main text
+\usepackage{helvet}  % serif
+\usepackage{euler}   % math font
+\usepackage[dvips]{graphicx}%
+\usepackage[dvips]{color}
+\usepackage{array,colortbl}    
+
+%%% Ensuring empty page
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+
+\noindent\begin{minipage}{\linewidth}%
+\begin{center}%
+\begin{tabular}{>{\scshape}llrr}%
+%\hline
+\rowcolor[gray]{0.9}
+\color{black} \bfseries \scshape Species & \bfseries \scshape Common name & \bfseries \scshape Genome size & \bfseries \scshape Genes\\
+%\hline
+\emph{Saccharomyces cerevisiae} & Yeast & 12,156,590 & 6,680\\
+\emph{Caenorhabditis elegans} & Nematode worm & 100,585,160 & 20,065\\
+\emph{Anopheles gambiae} & Mosquito & 278,253,050 & 13,277\\
+\emph{Apis mellifera} & Honey Bee & 228,567,597 & 13,448\\
+\emph{Drosophila melanogaster} & Fruit fly & 144,138,837 & 13,985\\
+\emph{Fugu rubripes} & Pufferfish & 393,296,343 & 22,008\\
+\emph{Gallus gallus} & Chicken & 1,054,197,620 & 18,632\\
+\emph{Mus musculus} & Mouse & 2,676,244,419 & 24,256\\
+\emph{Rattus norvegicus} & Rat & 2,718,897,321 & 21,952\\
+\emph{Bos taurus} & Cow & 1,741,208,718 & 23,231\\
+\emph{Pan troglodytes} & Chimpanze & 2,733,948,177 & 22,475\\
+\emph{Homo sapiens} & Human & 3,433,077,231 & 23,341\\
+\emph{Triticum aestivum} & Wheat$^*$ & 17,000,000,000 & 50,000\\
+%\hline
+\end{tabular}%
+\end{center}%
+\end{minipage}%
+
+\end{center}%
+\end{document}
+

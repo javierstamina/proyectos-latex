@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+Unidad 2 de Electrónica Analógica\\
+Cuestionario de BJT \\
+\textbf{Valor de la evidencia de aprendizaje: 50 puntos}
+\end{center} 
+\vskip 1cm
+Nombre completo: \rule{11cm}{0.2mm}
+\vskip 1cm
+\begin{enumerate}
+\item Explique el funcionamiento y aplicaciones de los transistores de unión bipolar (\textit{BJT}).
+\item ¿Qué tipo de transistores existen? Dibuje sus símbolos.
+\item Deduzca la fórmula de \textit{$I_B$} para un circuito de polarización fija.
+\item A partir de la configuración de polarización estabilizada en el emisor, deduzca la fórmula para calcular $V_{CE}$.
+\item Explique el significado del parámetro $\beta$ de un transistor.
+\item En el siguiente circuito calcule: a)$I_B$, b)$I_C$, c)$V_{CE}$, d)$V_C$.
+\begin{figure}[h]
+\begin{center}
+\begin{circuitikz}
+%\draw (0,0) grid (6,6);
+\draw (3,5) to [short,-o] (3,6);
+\node [above] at (3,6) {15 V};
+\draw (1,5) -- (5,5);
+\draw (1,5) to [R=390$k\Omega$] (1,2);
+\draw (5,2) node[npn] (npn){};
+\draw (5,5) to [R=3.2$k\Omega$] (5,2.75);
+\draw (1,2) -- (4.3,2);
+\draw (5,1.6) to node[ground]{} (5,0.7);
+\end{circuitikz}
+\label{fig:fija}
+\end{center}
+\end{figure}
+\item Dibuje la curva característica del transistor \textit{BJT} para diferentes corrientes de base.
+\item Explique los términos de voltaje y corriente de saturación.
+\end{enumerate}
+
+
+\end{document}

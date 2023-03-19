@@ -1,0 +1,49 @@
+%
+% $Id: bookcover.tex 11 2005-03-29 00:58:58Z jabril $
+%
+%{\centering%
+\begin{center}
+
+%% \ifthenelse{\not \boolean{COVERflg}}%
+%%            {%
+%%             \thispagestyle{empty}%
+%%             \pagecolor{covergreen}%
+%%                 \color{coverwhite}%
+%%            }%
+%%            {}%
+
+%\color{black}%
+
+\fbox{\begin{minipage}[t][0.965\textheight][c]{0.8\textwidth}
+\vfill\ %
+
+\begin{center}
+\scalebox{2.5}{
+\parbox{0.35\linewidth}{\centering\textbf\Huge\sffamily \mytitle}}
+\end{center}
+
+%\vskip 20pt %\vfill
+ 
+%\begin{center}%
+% \setlength{\fboxsep}{0pt}\setlength{\fboxrule}{2.5pt}%
+% \fcolorbox{darkgreen}{darkgreen}{%
+  %\includegraphics[width=0.975\linewidth]{ps/dna2bits}%
+% }%fbox
+%\end{center}
+
+%\vskip 25pt %\vfill
+
+\vspace{1cm}
+
+\begin{center}
+\sffamily
+\scalebox{2.5}{\textbf\Huge\sffamily \thyauthor}
+
+\vspace{9cm}
+\huge PhD Thesis\\[1.5ex]
+\large Barcelona, \thydate
+\vfill\ %
+\end{center}
+\end{minipage}}
+\end{center}
+%}%centering

@@ -1,0 +1,106 @@
+%%
+%% 研究報告用スイッチ
+%% [techrep]
+%%
+%% 欧文用スイッチ(keywordは任意)
+%% [english]
+%%
+
+¥documentclass[techreq,english]{dpsws}
+
+¥usepackage[dvips]{graphicx}
+¥usepackage{latexsym}
+
+¥def¥Underline{¥setbox0¥hbox¥bgroup¥let¥¥¥endUnderline}
+¥def¥endUnderline{¥vphantom{y}¥egroup¥smash{¥underline{¥box0}}¥¥}
+¥def¥|{¥verb|}
+
+
+¥usepackage[varg]{txfonts}%%!!
+¥makeatletter%
+¥input{ot1txtt.fd}
+¥makeatother%
+
+
+¥begin{document}
+
+¥title{How to Prepare Your Papers for the DPSWS}
+
+¥affiliate{IPSJ}{Information Processing Society of Japan, 
+Chiyoda, Tokyo 101--0062, Japan}
+¥affiliate{JU}{Johoshori University, Chiyoda, Tokyo 101--0062, Japan}
+¥paffiliate{PJU}{Johoshori University}
+
+¥author{Joho Taro}{IPSJ,PJU}[joho.taro@ipsj.or.jp]
+¥author{Shori Hanako}{JU}[shori.hanako@johosyori-u.ac.jp]
+¥author{Gakkai Jiro}{JU}
+
+¥begin{abstract}
+This document is a guide for preparing drafts 
+and the camera-ready manuscripts using the {¥LaTeX} style file
+to be submitted to the DPS Workshop (DPSWS). 
+Since this document itself is produced with the style files, 
+it will help you to refer to its source file. 
+¥end{abstract}
+
+
+¥maketitle
+
+%1
+¥section{Paper Format for Submission}
+
+If you would like to submit a paper 
+for the DPS Workshop (DPSWS) using {¥LaTeX}, 
+you have to use the class file ¥texttt{dpsws.cls}. 
+If you write your paper in Japanese, 
+please indicate your paper format 
+at the top of your tex source file as follows: 
+
+¥begin{verbatim}
+
+¥documentclass[submit,techreq,noauthor]{dpsws}
+
+¥end{verbatim}
+
+If you write your paper in English, 
+indicate your paper format as follows: 
+
+¥begin{verbatim}
+
+¥documentclass[techreq,english]{dpsws}
+
+¥end{verbatim}
+
+The files for DPSWS, ¥texttt{dpsws.cls} and ¥texttt{dpsws.sty}, are created by deleting the header and footer from ¥texttt{ipsj.cls} and ¥texttt{ipsjtech.sty}, respectively.
+In case of a Japanese paper, we have also deleted the English title, authors, and abstract.
+For the detail of the paper format, 
+please refer to the IPSJ journal style guide
+provided at the URL
+http://www.ipsj.or.jp/english/jip/submit/ronbun¥_e¥_prms.html
+¥cite{ipsjEFormat}. 
+
+Please do not ask IPSJ for the style files of DPSWS. 
+DPSWS organizing committee 
+also will not support preparation of your paper in principle. 
+However, 
+if you have any necessary questions on the paper style, 
+please contact the organizing committee. 
+
+
+¥section{Troubleshooting about Character Code}
+
+The files for DPSWS are encoded in Shift JIS code for Windows users.
+If you use the files on other systems and meet an error due to the encoding, please convert them by an appropriate encoding format, for example, EUC and UTF-8.
+
+
+
+¥begin{thebibliography}{10}                                                    
+
+¥bibitem{ipsjEFormat}
+Journal of Information Processing (JIP): 
+Information for Authors,
+available from ¥urle{http://www.ipsj.or.jp/english/jip/submit/ronbun¥_e¥_prms.html} (accessed 2022.06.15).
+
+¥end{thebibliography}
+
+¥end{document}

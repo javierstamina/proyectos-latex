@@ -1,0 +1,46 @@
+\subsubsection{Intersección de un cilindro y un plano}
+\begin{figure}[!ht]
+    \centering
+	\tdplotsetmaincoords{60}{110}
+	\begin{tikzpicture}[tdplot_main_coords,scale=0.75]
+		\pgfmathsetmacro{\final}{2.0*pi}
+		% The equation of the circumference
+		\draw[white] (0,-2.5,0) -- (2.75,0,0) node[blue,midway,below,sloped] {\footnotesize$x^2 + y^2 = 4$};
+		% Region of integration: circle of radius 2
+		\draw[thick,fill=yellow,opacity=0.5] plot[domain=0:6.2832,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{0.0});
+		%%% Coordinate axis
+		\draw[thick,->] (0,0,0) -- (3.5,0,0) node [below left] {\footnotesize$x$};
+		\draw[dashed] (0,0,0) -- (-3,0,0);
+		\draw[thick,->] (0,0,0) -- (0,3.5,0) node [right] {\footnotesize$y$};
+		\draw[dashed] (0,0,0) -- (0,-3,0);
+		\draw[thick] (0,0,0) -- (0,0,4);% node [above] {\footnotesize$z$};	
+		% The plane: x + y = 2
+		\coordinate (A) at (3,2.5,1.5);
+		\coordinate (B) at (-3,2.5,1.5);
+		\coordinate (C) at (-3,-2.5,6.5);
+		\coordinate (D) at (3,-2.5,6.5);
+		% The Cylinder
+		\foreach \angulo in {0,0.01,...,\final}{
+			\pgfmathparse{2.0*cos(\angulo r)}
+			\pgfmathsetmacro{\px}{\pgfmathresult}
+			\pgfmathparse{2.0*sin(\angulo r)}
+			\pgfmathsetmacro{\py}{\pgfmathresult}
+			\draw[cyan,opacity=0.5] (\px,\py,0) -- (\px,\py,4.0-\py);
+		}
+		% Trace (intersection of the plane and the cylinder)
+		\draw[blue,thick] plot[domain=0:6.2832,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{4.0-2.0*sin(\t r)});
+		% Circumferences bounding the cylinder
+		\draw[blue,thick,opacity=0.5] plot[domain=0:6.2831853,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{4.0-2*sin(\t r)}); 
+		\draw[blue,thick,opacity=0.5] plot[domain=0:6.2831853,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{0.0}); 
+		% The plane
+		\draw[white] (C) -- (B) node[red,above,sloped,midway]{\footnotesize$y + z = 4$};
+		\draw[red,dash dot] (A) -- (B) -- (C)	 -- (D) -- (A);
+		\fill[pattern color=pink,pattern=north east lines] (A) -- (B) -- (C)	 -- (D) -- (A);
+		\fill[yellow,opacity=0.35] plot[domain=0:6.2832,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{4.0-2.0*sin(\t r)});
+		% Tz axis (last part)
+		\draw[thick,->] (0,0,4) -- (0,0,8) node [above] {\footnotesize$z$};	
+	\end{tikzpicture}
+
+    \caption{Cilindro y Plano}
+    \label{fig:cilin-plane}
+\end{figure}

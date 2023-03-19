@@ -1,0 +1,92 @@
+\documentclass[submit,techreq,noauthor]{dpsws}
+
+\usepackage[dvips]{graphicx}
+\usepackage{latexsym}
+
+\def\Underline{\setbox0\hbox\bgroup\let\\\endUnderline}
+\def\endUnderline{\vphantom{y}\egroup\smash{\underline{\box0}}\\}
+\def\|{\verb|}
+
+\begin{document}
+
+
+\title{DPSWS原稿の準備方法（2022年6月15日版）}
+
+\affiliate{IPSJ}{情報処理学会\\
+IPSJ, Chiyoda, Tokyo 101--0062, Japan}
+
+\paffiliate{JU}{情報処理大学\\
+Johoshori Uniersity}
+
+\author{情報 太郎}{Joho Taro}{IPSJ}[joho.taro@ipsj.or.jp]
+\author{処理 花子}{Shori Hanako}{IPSJ}
+\author{学会 次郎}{Gakkai Jiro}{IPSJ,JU}[gakkai.jiro@ipsj.or.jp]
+
+\begin{abstract}
+本稿は，マルチメディア通信と分散処理ワークショップ(DPSWS)に投稿する
+原稿を執筆する際のフォーマット及び注意点をまとめたものである．
+本稿も投稿フォーマットに従って執筆されているため，
+著者は本稿のソースファイルを雛形にして原稿を執筆することが可能である．
+DPSWSで用いるスタイルファイルは，情報処理学会論文誌のスタイルファイル
+（http://www.ipsj.or.jp/journal/submit/style.html からアクセス可能）
+を継承しているため，使用すべき{\LaTeX}コマンドや執筆形式の詳細については，
+そちらをご参照いただきたい．
+\end{abstract}
+
+\maketitle
+
+%1
+\section{投稿フォーマットについて}
+
+マルチメディア通信と分散処理ワークショップ(DPSWS)に投稿する論文を
+{\LaTeX}を利用して作成する場合には、\texttt{dpsws.cls}ファイルを用いることとする．
+和文論文の場合には，texソースの冒頭に次のように記述すること．\\
+
+\begin{verbatim}
+\documentclass[submit,techreq,noauthor]{dpsws}
+
+\end{verbatim}
+
+\noindent
+英文論文の場合には，次のように記述すること．\\
+
+\begin{verbatim}
+\documentclass[techreq,english]{dpsws}
+
+\end{verbatim}
+
+クラスファイル\texttt{dpsws.cls}は情報処理学会標準の\texttt{ipsj.cls}を基にして，
+ヘッダ，フッタを出力しないようにカスタマイズした
+ものであり（和文論文の場合には英語タイトル，英文著者名，
+及び英文アブストラクトも出力しないようにしてある），
+情報処理学会の許諾の下に配布している．
+その他の本論文の体裁については
+「情報処理学会論文誌(IPSJ Journal) 原稿執筆案内」
+\cite{ipsjFormat}に基づいて記述することとする．
+但し，biographyセクションは記述しないものとする．
+
+これらスタイルファイルについて，
+情報処理学会に問い合わせることはしないようにお願いしたい．
+DPSWSとしてもスタイルファイルに対するサポートは行わないが，
+不備や不明な点等があり問い合わせが必要である場合には，
+DPSWSの問い合わせ窓口にご連絡いただきたい．
+
+
+\section{文字コードについて}
+
+DPSWS向けに用意された\texttt{dpsws.cls}や\texttt{dpsws.sty}などの
+ファイルは，MS Windowsで利用されることを想定し，Shift-JISの文字コードで
+作成している．
+他の環境で執筆する場合は，適宜文字コードや改行コードを変換してから利用されたい．
+
+\begin{thebibliography}{10}
+
+\bibitem{ipsjFormat}
+情報処理学会論文誌(IPSJ Journal)原稿執筆案内
+(\urlj{http://www.ipsj.or.jp/journal/submit/ronbun\_j\_prms.html})
+(2022.06.15).
+
+\end{thebibliography}
+
+
+\end{document}

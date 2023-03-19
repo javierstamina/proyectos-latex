@@ -1,0 +1,52 @@
+\subsubsection{Cilindro truncado}
+\begin{figure}[h]
+    \centering
+	%
+	\tdplotsetmaincoords{60}{110}
+	\begin{tikzpicture}[tdplot_main_coords,scale=1]
+		\tikzmath{function a(\x,\y) {return (4.0-\x-\y);};}
+		\pgfmathsetmacro{\final}{2.0*pi}
+		\pgfmathsetmacro{\ejez}{a(0,0)}
+		% The equation of the cyrcumference
+		\draw[white] (0,-2.5,0) -- (2.75,0,0) node[blue,midway,below,sloped] {\footnotesize$x^2 + y^2 = 4$};
+		% The region of integration: the circle of radius 2
+		\draw[thick,fill=yellow,opacity=0.5] plot[domain=0:6.2832,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{0.0});
+		%%% Coordinate axis
+		\draw[thick,->] (0,0,0) -- (3.5,0,0) node [below left] {\footnotesize$x$};
+		\draw[dashed] (0,0,0) -- (-3,0,0);
+		\draw[thick,->] (0,0,0) -- (0,3.5,0) node [right] {\footnotesize$y$};
+		\draw[dashed] (0,0,0) -- (0,-3,0);
+		\draw[thick] (0,0,0) -- (0,0,\ejez);% node [above] {\footnotesize$z$};	
+		% The plane: x + y + z = 4
+		\pgfmathsetmacro{\Az}{a(2.5,2.5)}
+		\pgfmathsetmacro{\Bz}{a(-2.5,2.5)}
+		\pgfmathsetmacro{\Cz}{a(-2.5,-2.5)}
+		\pgfmathsetmacro{\Dz}{a(2.5,-2.5)}
+		\coordinate (A) at (2.5,2.5,\Az);
+		\coordinate (B) at (-2.5,2.5,\Bz);
+		\coordinate (C) at (-2.5,-2.5,\Cz);
+		\coordinate (D) at (2.5,-2.5,\Dz);
+		% The cylinder
+		\foreach \angulo in {0,0.01,...,\final}{
+			\pgfmathparse{2.0*cos(\angulo r)}
+			\pgfmathsetmacro{\px}{\pgfmathresult}
+			\pgfmathparse{2.0*sin(\angulo r)}
+			\pgfmathsetmacro{\py}{\pgfmathresult}
+			\draw[cyan,opacity=0.5] (\px,\py,0) -- (\px,\py,4.0-\px-\py);
+		}
+		% The intersection of the cylinder and the plane (the trace)
+		\draw[blue,thick] plot[domain=0:6.2832,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{4.0-2.0*sin(\t r)-2.0*cos(\t r)});
+		% Circumference & Ellipse bounding the solid.
+		\draw[blue,thick,opacity=0.5] plot[domain=0:6.2831853,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{4.0-2*sin(\t r)-2.0*cos(\t r)}); 
+		\draw[blue,thick,opacity=0.5] plot[domain=0:6.2831853,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{0.0}); 
+		% The plane
+		\draw[white] (C) -- (B) node[red,above,sloped,midway]{\footnotesize$x + y + z = 4$};
+		\draw[red,dash dot] (A) -- (B) -- (C)	 -- (D) -- (A);
+		\fill[pattern color=pink,pattern=north east lines] (A) -- (B) -- (C)	 -- (D) -- (A);
+		\fill[pink,opacity=0.5] plot[domain=0:6.2832,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{4.0-2.0*sin(\t r) - 2.0*cos(\t r)});
+		% z axis (last part)
+		\draw[thick,->] (0,0,\ejez) -- (0,0,8) node [above] {\footnotesize$z$};	
+	\end{tikzpicture}
+	\caption{Cilindro truncado cortado por un plano}
+    \label{fig:cilindro-trun}
+\end{figure}

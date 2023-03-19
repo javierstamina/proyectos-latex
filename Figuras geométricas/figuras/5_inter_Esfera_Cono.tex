@@ -1,0 +1,74 @@
+\subsubsection{Intersección de un esfera y un cono}
+\begin{figure}[!ht]
+    \centering
+	%
+	\tdplotsetmaincoords{60}{130}
+	\begin{tikzpicture}[tdplot_main_coords,scale=1.75]
+		\tikzmath{function f(\x) {return \x;};}
+		\pgfmathsetmacro{\zini}{0.5*sqrt(2.0)}
+		\pgfmathsetmacro{\step}{0.01}
+		\pgfmathsetmacro{\zsig}{\zini+\step}
+		\pgfmathsetmacro{\nextz}{\zini+0.5*\step}
+		\pgfmathsetmacro{\sig}{2.0*\step}
+		\pgfmathsetmacro{\tini}{0.5*pi}
+		\pgfmathsetmacro{\tfin}{1.85*pi}
+		\pgfmathsetmacro{\tend}{2.5*pi}
+		%%% Coordinate axis
+		\draw[thick,->] (0,0,0) -- (1.5,0,0) node [below left] {\footnotesize$x$};
+		\draw[dashed,->] (0,0,0) -- (-1.5,0,0);
+		\draw[thick,->] (0,0,0) -- (0,1.5,0) node [right] {\footnotesize$y$};
+		\draw[dashed,->] (0,0,0) -- (0,-1.5,0);
+		% The region of integration
+		\draw[gray,thick,fill=yellow,opacity=0.25] plot[domain=0:6.2832,smooth,variable=\t] ({cos(\t r)},{sin(\t r)},{0.0}); 
+		% Firts part of the sphere (under the cone)
+		\foreach \altura in {\step,\sig,...,\zini}{
+			\pgfmathsetmacro{\radio}{sqrt(1.0-\altura*\altura)}
+			\draw[pink,thick,opacity=0.5] plot[domain=\tini:\tfin,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura}); 
+		}
+		% Now, the cone (the part under the intersection)
+		\foreach \altura in {\step,\sig,...,\zini}{
+			\pgfmathsetmacro{\radio}{\altura}
+			\draw[cyan,thick,opacity=0.5] plot[domain=\tini:\tfin,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura}); 
+		}	
+		% z axis (first part)
+		\draw[thick] (0,0,0) -- (0,0,1.0);
+		% The cone (level curves: z is constant)
+		\foreach \altura in {\zini,\zsig,...,1.0}{
+			\pgfmathsetmacro{\radio}{\altura}
+			\draw[cyan,thick,opacity=0.5] plot[domain=\tini:\tfin,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura}); 
+		}
+		% unit sphere (for z constant)
+		\foreach \altura in {\zini,\nextz,...,1.0}{
+			\pgfmathsetmacro{\radio}{sqrt(1.0-\altura*\altura)}
+			\draw[pink,thick,opacity=0.5] plot[domain=\tfin:\tend,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura}); 
+		}
+		%	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+
+		%	+	+	+	+				Part of the front			+	+	+	+
+		%	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+	+
+		% The cone (part under the intersection)
+		\foreach \altura in {\step,\sig,...,\zini}{
+			\pgfmathsetmacro{\radio}{\altura}
+			\draw[cyan,thick,opacity=0.5] plot[domain=\tfin:\tend,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura}); 
+		}	
+		% Unit sphere (for z constant)
+		\foreach \altura in {\zini,\nextz,...,1.0}{
+			\pgfmathsetmacro{\radio}{sqrt(1.0-\altura*\altura)}
+			\draw[pink,thick,opacity=0.5] plot[domain=\tini:\tfin,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura}); 
+		}
+		% Part of the sphere under the cone
+		\foreach \altura in {\step,\sig,...,\zini}{
+			\pgfmathsetmacro{\radio}{sqrt(1.0-\altura*\altura)}
+			\draw[pink,thick,opacity=0.5] plot[domain=\tfin:\tend,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura}); 
+		}
+		% The cone (for z constant)
+		\foreach \altura in {\zini,\zsig,...,1.0}{
+			\pgfmathsetmacro{\radio}{\altura}
+			\draw[cyan,thick,opacity=0.5] plot[domain=\tfin:\tend,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura}); 
+		}
+		% Finishing of the z axis
+		\draw[thick,->] (0,0,1.0) -- (0,0,1.5) node [above] {\footnotesize$z$};
+	\end{tikzpicture}
+
+    \caption{Esfera (parte superior) y cono}
+    \label{fig:esfe-conol}
+\end{figure}

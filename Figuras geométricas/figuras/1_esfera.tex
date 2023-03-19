@@ -1,0 +1,72 @@
+\subsubsection{Esfera paramétrica}
+\begin{figure}[!ht]
+    \centering
+
+	\tdplotsetmaincoords{60}{130}
+	\begin{tikzpicture}[tdplot_main_coords,scale=2]
+		% Ecuaciones paramétricas de la esfera
+		\tikzmath{function equis(\r,\p,\t) {return \r * sin(\p r) * cos(\t r);};}
+		\tikzmath{function ye(\r,\p,\t) {return \r * sin(\p r) * sin(\t r);};}
+		\tikzmath{function zeta(\r,\p,\t) {return \r * cos(\p r);};}
+		\pgfmathsetmacro{\tcero}{0.0}
+		\pgfmathsetmacro{\phiInit}{0.0}
+		\pgfmathsetmacro{\phiMid}{0.5*pi}
+		\pgfmathsetmacro{\phiEnd}{pi}
+		\pgfmathsetmacro{\thetaInit}{0.5*pi}
+		\pgfmathsetmacro{\thetaMid}{1.85*pi}
+		\pgfmathsetmacro{\thetaEnd}{2.5*pi}
+		%
+		\pgfmathsetmacro{\step}{0.02}
+		\pgfmathsetmacro{\next}{\tcero+0.5*\step}
+		\pgfmathsetmacro{\sig}{2.0*\step}
+		\pgfmathsetmacro{\radio}{2.0}
+		\pgfmathsetmacro{\sigP}{\phiMid+\step}
+		\pgfmathsetmacro{\sigPp}{\sigP+\step}
+		% I start to draw the sphere from below
+		% Parte de la esfera bajo el plano z = 0
+		\foreach \p in {\sigP,\sigPp,...,\phiEnd}{
+			\draw[orange,thick,opacity=0.15] plot[domain=\thetaInit:\thetaEnd,smooth,variable=\t] 
+			({equis(\radio,\p,\t)},{ye(\radio,\p,\t)},{zeta(\radio,\p,\t)}); 
+		}
+
+		%DIBUJANDO Circunferencias
+		% As a reference, I draw a circumference at z = 0 (phi = pi / 2).
+		\draw[red,opacity=0.25] plot[domain=0:2*pi,smooth,variable=\t] 
+				({equis(\radio,\phiMid,\t)},{ye(\radio,\phiMid,\t)},{zeta(\radio,\phiMid,\t)});
+		% As a reference, I draw a circumference at x = 0 (theta = 0).
+		\draw[red,opacity=0.25] plot[domain=0:2*pi,smooth,variable=\t] 
+				({equis(\radio,\t,0)},{ye(\radio,\t,0)},{zeta(\radio,\t,0)});
+		% As a reference, I draw a circumference at y = 0 (theta = pi/2).
+		\draw[red,opacity=0.25] plot[domain=0:2*pi,smooth,variable=\t] 
+				({equis(\radio,\t,\thetaInit)},{ye(\radio,\t,\thetaInit)},{zeta(\radio,\t,\thetaInit)});
+		% ¨Parte de la esfera detrás del eje
+		\foreach \p in {\step,\sig,...,\phiMid}{
+			\draw[orange,thick,opacity=0.15] plot[domain=\thetaInit:\thetaMid,smooth,variable=\t] 
+			({equis(\radio,\p,\t)},{ye(\radio,\p,\t)},{zeta(\radio,\p,\t)}); 
+		}
+		
+		% Parte de la esfera frente al eje z
+		\foreach \p in {\step,\sig,...,\phiMid}{
+			\draw[orange,thick,opacity=0.15] plot[domain=\thetaMid:\thetaEnd,smooth,variable=\t] 
+			({equis(\radio,\p,\t)},{ye(\radio,\p,\t)},{zeta(\radio,\p,\t)}); 
+		}
+		
+% Dibujo de ejes dentro de la esfera
+		%%% Coordinate axis
+		\draw[thick,gray,thin,->] (0,0,0) -- (1.5*\radio,0,0) node [below left] {\footnotesize$x$};
+		\draw[dashed,gray,ultra thin] (0,0,0) -- (-1.4*\radio,0,0);
+		\draw[thick,gray,thin,->] (0,0,0) -- (0,1.5*\radio,0) node [right] {\footnotesize$y$};
+		\draw[dashed,gray,ultra thin] (0,0,0) -- (0,-1.25*\radio,0);
+		\draw[dashed,gray,ultra thin] (0,0,0) -- (0,0,-\radio);
+		
+		% Parte del eje Z bajo la esfera
+		\draw[gray,dashed,ultra thin] (0,0,-1.25*\radio) -- (0,0,-\radio);
+		% Parte del eje z dentro de la esfera
+		\draw[thick,gray, thin] (0,0,0) -- (0,0,\radio);
+		% Parte del eje z debajo de la esfera
+		\draw[thick,gray, thin,->] (0,0,\radio) -- (0,0,1.5*\radio) node [above] {\footnotesize$z$};
+	\end{tikzpicture}
+	\caption{Esfera paramétrica}
+    \label{fig:esfera}
+
+\end{figure}

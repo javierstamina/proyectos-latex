@@ -1,0 +1,52 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin={1cm,1cm}]{geometry}
+\usepackage[dvips]{color}
+\usepackage{array,colortbl}    
+
+\frenchspacing
+ 
+\newcommand{\maq}
+      {\texttt}
+\newcommand{\negr}
+      {\textbf}
+\newcommand{\intro}
+      {\textsf}
+\newcommand{\ver}
+      {\textsc}
+\newcommand{\pie}
+      {\footnote}
+ 
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+\begin{tabular}{|>{\scshape}c|r|r|r|r|r|r|r|r|}
+\hline
+& \multicolumn{2}{|c|}{1-500} & \multicolumn{2}{|c|}{4000-4500} & \multicolumn{2}{|c|}{\textcolor{red}{4500-5000}} & \multicolumn{2}{|c|}{5000-5500}\\
+\hline
+\rowcolor[gray]{0.9}
+& \textcolor{green}{\negr{TOP1}} & \negr{TOP 10} & \textcolor{green}{\negr{TOP1}} & \negr{TOP 10} & \textcolor{red}{\negr{TOP1}} & \textcolor{red}{\negr{TOP 10}}  & \textcolor{green}{\negr{TOP1}} & \negr{TOP 10}\\
+\hline
+\negr{50T} & \textcolor{green}{4\%} & 30\% & \textcolor{green}{14\%} & 70\% & \textcolor{red}{33\%} & \textcolor{red}{76\%} & \textcolor{green}{21\%} & 62 \%\\
+\hline
+\ver{Transfac} & \textcolor{green}{2\%} & 37\% & \textcolor{green}{12\%} & 55\% &\textcolor{red}{23\%} & \textcolor{red}{61\%} & \textcolor{green}{17\%} & 48\%\\
+\hline
+\hline
+\ver{Blastn} & \textcolor{green}{0 \%} & 12\% & \textcolor{green}{4\%} & 17 \% &\textcolor{red}{16\%} & \textcolor{red}{31\%} & \textcolor{green}{5\%} & 22\%\\
+\hline
+\hline
+& \multicolumn{2}{|c|}{5500-6000}  & \multicolumn{2}{|c|}{10000-10500} & \multicolumn{2}{|c|}{20000-20500} &  \multicolumn{2}{|c|}{50000-50500}\\
+\hline
+\rowcolor[gray]{0.9}
+ & \textcolor{green}{\negr{TOP1}} & \negr{TOP 10} & \textcolor{green}{\negr{TOP1}} & \negr{TOP 10} & \textcolor{green}{\negr{TOP1}} & \negr{TOP 10} & \textcolor{green}{\negr{TOP1}} & \negr{TOP 10}\\
+\hline
+\negr{50T} & \textcolor{green}{9\%} & 57\% & \textcolor{green}{2\%} & 37\% & \textcolor{green}{1\%} & 15\% & \textcolor{green}{0\%} & 0\% \\
+\hline
+\ver{Transfac} & \textcolor{green}{7\%} & 48\% & \textcolor{green}{5\%} & 36\% & \textcolor{green}{1\%} & 17\% & \textcolor{green}{0\%} & 1\% \\
+\hline
+\ver{Blastn} & \textcolor{green}{1\%} & 20\% & \textcolor{green}{2\%} & 16\% & \textcolor{green}{1\%} & 6\% & \textcolor{green}{ 0 \%} & 1\% \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}

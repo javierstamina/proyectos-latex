@@ -1,0 +1,140 @@
+% \nochapter{A genetic code chart}\label{sec:code}
+
+% \newpage\clearpage
+%\ \vfill%
+\enlargethispage{1cm}%
+
+\renewcommand{\arraystretch}{1.2}%
+
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|c|c|l|}\hline
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Origin of designation} \\ % (Nucleic Acid)
+\hline
+\hline
+ A &       A          & \textbf{A}denine \\
+ C &       C          & \textbf{C}ytosine \\
+ G &       G          & \textbf{G}uanine \\
+ T &       T          & \textbf{T}hymine \\
+ U &       U          & \textbf{U}racil \\[1.2ex]
+ R &     A or G       & pu\textbf{R}ine \\
+ Y &     C or T       & p\textbf{Y}rimidine \\[1.2ex]
+ M &     A or C       & a\textbf{M}ino \\
+ K &     G or T       & \textbf{K}etone \\[1.2ex]
+ W &     A or T       & \textbf{W}eak interaction (2 H bonds) \\
+ S &     C or G       & \textbf{S}trong interaction (2 H bonds) \\[1.2ex]
+ B &   C or G or T    & not-A, \textbf{B} follows A in the alphabet \\
+ D &   A or G or T    & not-C, \textbf{D} follows C \\
+ H &   A or C or T    & not-G, \textbf{H} follows G \\
+ V &   A or C or G    & not-T (not-U), \textbf{V} follows U \\[1.2ex]
+ N & G or A or T or C & a\textbf{N}y (unspecified) \\
+ X & G or A or T or C & a\textbf{N}y (often meaning unknown) \\
+\hline
+\end{tabular}
+%%
+\mycaption{tbl:dnaalphabet}% label
+          {Extended DNA / RNA alphabet}% lot
+          {Extended DNA / RNA alphabet.}% caption header
+          {%
+%%
+  \index{DNA!alphabet}\index{RNA!alphabet}It includes symbols coding
+  for nucleotide\index{nucleotide} ambiguity. Adapted from IUPAC-IUB
+  for nucleotide nomenclature \citep{cornish-bowden1985:2582368}.
+%%
+           }% caption text
+\end{center}
+\end{table}
+
+%\ \vfill%
+%\newpage%clearpage
+
+%\markboth{\textsc{Appendix}\space\Alph{chapter}.\space\space\MakeUppercase{\glossaryname}}%
+%         {\textsc{Appendix}\space\Alph{chapter}.\space\space\MakeUppercase{\glossaryname}}%
+
+\renewcommand{\arraystretch}{1.25}%
+
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|c|c|l|l|}\hline
+\multicolumn{2}{|c|}{\textbf{Symbols}} & \textbf{Amino Acid} & \textbf{Codons} \\
+\hline
+\hline
+A & Ala & Alanine & \textbf{GCA} GCC \textbf{GCG} GCU\\
+\hline
+C & Cys & Cysteine & \textbf{UGC} UGU\\
+\hline
+D|B & Asp & Aspartic acid & \textbf{GAC} GAU\\
+\hline
+E|Z & Glu & Glutamic acid & \textbf{GAA} GAG\\
+\hline
+F & Phe & Phenylalanine & \textbf{UUC} UUU\\
+\hline
+G & Gly & Glycine & \textbf{GGA} GGC \textbf{GGG} GGU\\
+\hline
+H & His & Histidine & \textbf{CAC} CAU\\
+\hline
+I & Ile & Isoleucine & \textbf{AUA} AUC \textbf{AUU}\\
+\hline
+K & Lys & Lysine & \textbf{AAA} AAG\\
+\hline
+L & Leu & Leucine & \textbf{UUA} UUG \textbf{CUA} CUC \textbf{CUG} CUU\\
+\hline
+M & Met & Metionine & \textbf{AUG}\\
+\hline
+N|B & Asn & Asparagine & \textbf{AAC} AAU\\
+\hline
+P & Pro & Proline & \textbf{CCA} CCC \textbf{CCG} CCU\\
+\hline
+Q|Z & Gln & Glutamine & \textbf{CAA} CAG\\
+\hline
+R & Arg & Arginine & \textbf{AGA} AGG \textbf{CGA} CGC \textbf{CGG} CGU\\
+\hline
+S & Ser & Serine & \textbf{AGC} AGU \textbf{UCA} UCC \textbf{UCG} UCU\\
+\hline
+T & Thr & Threonine & \textbf{ACA} ACC \textbf{ACG} ACU\\
+\hline
+V & Val & Valine & \textbf{GUA} GUC \textbf{GUG} GUU\\
+\hline
+W & Trp & Tryptophan & \textbf{UGG}\\
+\hline
+Y & Tyr & Tyrosine & \textbf{UAC} UAU\\
+\hline
+X & Any & Unknown aa & \textbf{NNN} \\
+\hline
+\hline %% '@' -> 'TGA', '#' -> 'TAG', '!' -> 'TAA'
+\textbf{*} & (\textbf{!})  & Stop codon: ocre  & \textbf{UAA} \\
+\hline
+\textbf{*} & (\textbf{\#}) & Stop codon: amber & \textbf{UAG} \\
+\hline
+\textbf{*} & (\textbf{@})  & Stop codon: opal  & \textbf{UGA} \\ % selenoproteins!!!
+\hline
+U & Sec & Selenocysteine  & \textbf{UGA} \\ % selenoproteins!!!
+\hline
+\end{tabular}
+\index{stop~codon!ocre}\index{stop~codon!amber}\index{stop~codon!opal}
+%%
+\mycaption{tbl:code}% label
+          {The standard genetic code}% lot
+          {The standard genetic code.}% caption header
+          {%
+%%
+  \index{genetic!code}Synonymous codons\index{codon!synonymous} are
+  alternatively boldfaced to ease their distinction. Single letter
+  notation follows IUPAC-IUB for amino acid\index{amino~acid} symbols
+  \citep{iupaciub1984:6743224, iupaciub1993:8477694}. Termination
+  codons\index{stop~codon}\index{termination~codon|see{stop~codon}}
+  \index{codon!termination|see{stop~codon}}
+  are listed separately and their extended symbol codes are shown in
+  brackets. This extended notation was devised in our laboratory to
+  distinguish each stop codon on translated sequences; i.e., when
+  analyzing those sequences to look for
+  selenocysteine\index{amino~acid!selenocysteine} amino acid codon
+  corresponding to UGA\index{stop~codon!UGA~(opal)} termination codon
+  \citep{hatfield2002:11997494}.
+%%
+           }% caption text
+\end{center}
+\end{table}
+
+%\vfill\ %
+

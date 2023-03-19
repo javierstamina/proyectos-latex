@@ -1,0 +1,194 @@
+%*********************
+% EJERCICIO
+
+\section{Teoremas de triángulos}
+\subsection{Teorema incentro baricentro}
+
+\begin{figure}[h]
+\centering 
+\begin{tikzpicture}[scale=0.75]
+\tkzDefPoints{-3/0/A, -3.5/4/B, 3/0/C}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawPoints[color=blue](A,B,C)
+\tkzLabelPoints(A,C)
+\tkzLabelPoints[above](B)
+\tkzInCenter(A,B,C) \tkzGetPoint{I}
+\tkzCentroid(A,B,C) \tkzGetPoint{G}
+\tkzDrawPoints[color=blue](I,G)
+\tkzLabelPoints[below](I,G)
+\tkzDrawSegments(B,I B,G I,G)
+\tkzMarkAngle[size=0.7](A,B,I)
+\tkzLabelAngle(A,B,I){$\alpha$}
+\tkzMarkAngle[size=0.7](I,B,C)
+\tkzLabelAngle(I,B,C){$\alpha$}
+\end{tikzpicture}
+
+\caption{}
+   
+\end{figure}
+Sea el triángulo $\triangle ABC$, de incentro $I$ y baricentro $G$.\\
+Si $\overline{IG} \parallel  \overline{AC}$. Entonces:
+%formulas
+$$ AC = \frac{AB+BC}{2} $$
+
+
+%*********************
+% EJERCICIO
+\subsection{Teorema de área y bisectriz interior}
+
+\begin{figure}[h]
+\centering 
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/A, 1/3/B, 5/0/C}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawPoints[color=blue](A,B,C)
+\tkzLabelPoints(A,C){A,C}
+\tkzLabelPoints[above](B){B}
+\tkzDrawBisector(A,B,C) \tkzGetPoint{D}
+\tkzLabelPoints(D){D}
+\tkzFillPolygon[color=yellow, opacity=.5 ](A,B,D)
+\tkzFillPolygon[color=green, opacity=.5](D,B,C)
+\tkzMarkAngle[size=0.7](A,B,D)
+\tkzLabelAngle(A,B,D){$\alpha$}
+\tkzMarkAngle[size=0.7](D,B,C)
+\tkzLabelAngle(D,B,C){$\alpha$}
+
+\tkzCentroid(A,B,D) \tkzGetPoint{M}
+\tkzLabelPoint(M){$S_1$}
+\tkzCentroid(D,B,C) \tkzGetPoint{N}
+\tkzLabelPoint(N){$S_2$}
+
+\tkzLabelSegment[below](A,D){m}
+\tkzLabelSegment[below](D,C){n}
+\end{tikzpicture}
+
+\caption{}
+   
+\end{figure}
+Si $\overline{BD}$ es bisectriz interior del triángulo $\triangle ABC$\\
+Entonces: 
+%formulas
+$$ \frac{S_1}{S_2}=\frac{a}{b}=\frac{m}{n} $$
+
+\newpage
+%*********************
+% EJERCICIO
+\subsection{Teorema de Van Aubel}
+\begin{figure}[h]
+\centering 
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/A, 1/3/B, 5/0/C}
+\tkzInCenter(A,B,C) \tkzGetPoint{J}
+\tkzDrawPolygon(A,B,C)
+
+\tkzDrawBisector(A,B,C) \tkzGetPoint{D}
+\tkzDrawBisector(A,C,B) \tkzGetPoint{E}
+\tkzDrawBisector(C,A,B) \tkzGetPoint{F}
+\tkzInterLL(B,D)(C,E) \tkzGetPoint{K}
+\tkzDrawPoint(K)
+\tkzLabelPoint(K){$K$}
+
+\tkzLabelSegment[left](B,E){m}
+\tkzLabelSegment[left](E,A){n}
+\tkzLabelSegment[left](B,K){x}
+\tkzLabelSegment[left](K,D){y}
+\tkzLabelSegment[right](B,F){p}
+\tkzLabelSegment[right](F,C){q}
+\end{tikzpicture}
+
+\caption{}
+   
+\end{figure}
+Sea $K$ el punto de intersección de las cevianas de un triángulo.\\
+Se cumple: 
+%formulas
+$$ \frac{x}{y}=\frac{m}{n}=\frac{p}{q} $$
+
+%*********************
+% EJERCICIO
+\subsection{Teorema de raíces de áreas triangulares}
+\begin{figure}[h]
+\centering 
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/A, 2/5/B, 5/0/C}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawCircle[in](A,B,C) \tkzGetPoint{I}
+\tkzDrawPoints(A,B,C)
+\tkzDefPointBy[projection=onto A--C](I) \tkzGetPoint{M}
+\tkzDrawPoint(M)
+\tkzInterLC(A,I)(I,M) \tkzGetFirstPoint{E}
+\tkzInterLC(B,I)(I,M) \tkzGetFirstPoint{R}
+\tkzInterLC(C,I)(I,M) \tkzGetFirstPoint{T}
+
+\tkzDefTangent[at=E](I) \tkzGetPoint{e}
+\tkzInterLL(E,e)(A,B) \tkzGetPoint{J}
+\tkzInterLL(E,e)(A,C) \tkzGetPoint{N}
+\tkzDrawSegment(J,N)
+\tkzDefTangent[at=R](I) \tkzGetPoint{r}
+\tkzInterLL(R,r)(B,A) \tkzGetPoint{K}
+\tkzInterLL(R,r)(B,C) \tkzGetPoint{M}
+\tkzDrawSegment(K,M)
+\tkzDefTangent[at=T](I) \tkzGetPoint{t}
+\tkzInterLL(T,t)(C,B) \tkzGetPoint{P}
+\tkzInterLL(T,t)(C,A) \tkzGetPoint{O}
+\tkzDrawSegment(P,O)
+
+\tkzFillPolygon[color=yellow, opacity=.5 ](A,J,N)
+\tkzFillPolygon[color=green, opacity=.5](B,K,M)
+\tkzFillPolygon[color=red, opacity=.5](C,P,O)
+
+\tkzInCenter(A,J,N) \tkzGetPoint{Y}
+\tkzLabelPoint(Y){$A_1$}
+\tkzInCenter(B,K,M) \tkzGetPoint{U}
+\tkzLabelPoint(U){$A_2$}
+\tkzInCenter(C,P,O) \tkzGetPoint{H}
+\tkzLabelPoint(H){$A_3$}
+
+
+\end{tikzpicture}
+
+\caption{}
+   
+\end{figure}
+Si $A$ es el área de la región triangular $\triangle ABC$. Entonces: 
+%formulas
+$$ \sqrt{A}=\sqrt{A_1}+\sqrt{A_2}+\sqrt{A_3} $$
+
+\newpage
+%*********************
+% EJERCICIO
+\section{Propiedades de  triángulos}
+
+\subsection{Propiedades de altura de ángulo doble en ángulo triple}
+\begin{figure}[h]
+\centering 
+\begin{tikzpicture}[scale=2 ]
+\tkzDefPoint(0,0){A}
+\tkzDefPoint(5,0){B}
+\tkzDefTriangle[two angles = 60 and 30](A,B) \tkzGetPoint{C}
+\tkzDrawSegment(A,B)
+\tkzDrawPoints(A,B)
+\tkzLabelPoints(A,B)
+\tkzDrawSegments(A,C B,C)
+\tkzDrawPoints(C)
+\tkzLabelPoints[above](C)
+\tkzDefTriangle[two angles = 90 and 20](C,A) \tkzGetPoint{D}
+\tkzDrawSegment(A,D)
+\tkzDefPointBy[projection=onto A--D](C) \tkzGetPoint{F}
+\tkzDefPointBy[projection=onto A--B](D) \tkzGetPoint{G}
+\tkzDrawSegments(C,F D,G)
+\tkzLabelSegment[below](C,F){k}
+\tkzLabelSegment(D,G){x}
+\tkzLabelAngle[pos=.6](D,A,C){$\theta$}
+\tkzLabelAngle[pos=.6](B,A,D){$2\theta$}
+\tkzMarkRightAngles[size=.15,fill=gray!15](C,F,D A,C,B D,G,B)
+
+\end{tikzpicture}
+\caption{}
+\end{figure}
+% ======
+Sea el triángulo rectangulo $\angle ABC$. \\
+Se cumple: 
+%formulas
+$$ x = 2k $$
+

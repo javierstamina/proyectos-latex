@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{tkz-euclide}
+\usepackage{gensymb}
+\usetikzlibrary{calc}
+
+\usepackage{framed}
+\usepackage{multicol}
+
+\title{Practicando}
+\author{javier argo}
+\date{June 2022}
+%margen de hoja
+\usepackage[a4paper]{geometry}
+\geometry{top=5cm, bottom=1.0cm, left=1.25cm, right=1.25cm}
+%valro absoluto
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+%secante hiperbolico
+%\providecommand{\sech}[1]{1/\cosh}
+\usepackage{pst-all}
+%\usepackage{pgfplots}
+\usepackage{infix-RPN,pst-func}
+\usepackage{pst-infixplot}
+\usepackage{pst-node}
+\usepackage{pst-plot}
+%\usepackage[active,tightpage]{preview}
+%\PreviewEnvironment{pspicture}
+%\PreviewBorder=10pt\relax
+
+
+\begin{document}
+\tableofcontents
+\listoffigures
+\maketitle
+\section{Integrales de funciones hiperbólicas}
+\begin{multicols}{2}
+\fbox{\begin{minipage}{15em}
+\underline{NOTA:}
+$$\sinh(x)=\frac{\epsilon^x - \epsilon ^{-x}}{2}$$
+$$\cosh(x)=\frac{\epsilon^x + \epsilon ^{-x}}{2}$$
+\end{minipage}}
+\\ \\
+\[ \int \sinh(x) dx = \cosh(x) + C \]
+\[ \int \cosh(x) dx = \sinh(x) + C \]
+\[ \int \tanh(x) dx = \ln \abs{\cosh(x)} + C \]
+\[ \int \coth(x) dx = \ln \abs{\sinh(x)} + C \]
+\[ \int \frac{1}{\cosh(x)} dx = \arctan\sinh(x) + C \]
+\[ \int \frac{1}{\sinh(x)} dx = \ln \tanh(\frac{x}{2}) + C \]
+\[ \int \frac{1}{\cosh^{2}(x)} dx = \tanh(x) + C \]
+\[ \int \frac{1}{\sinh^{2}(x)} dx = -\coth(x) + C \]
+\end{multicols}
+
+\section{Integrales de funciones logarítmicas}
+\begin{multicols}{2}
+\begin{equation*}
+\begin{aligned}
+\int \ln(x) dx = x \ln(x) - x + C
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\int (\ln(x))^{2} dx = x (\ln(x))^{2}-2x\ln(x)\\ +2 x + C \\
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\int (\ln(x))^{3} dx = x (\ln(x))^{3}- 3x (\ln(x))^{2}\\+6x\ln(x) -6x + C
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\int (\ln(x))^{n} dx = x (\ln(x))^{n}\\- x \int(\ln(x))^{n-1} dx + C
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\int\frac{1}{\ln(x)}  dx =\ln\ln(x)+\ln(x)\\+\frac{(\ln(x))^{2}}{2\cdot2!}+\frac{(\ln(x))^{3}}{3\cdot3!} +\hdots+ C
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\int\frac{1}{(\ln(x))^{n}}  dx = -\frac{x}{(n-1)(\ln(x))^{n-1}} \\+\frac{1}{n-1} \int\frac{1}{(\ln(x))^{n-1}}  dx+C
+\end{aligned}
+\end{equation*}
+
+\end{multicols}
+\newpage
+\input{teoria/trigono}
+\end{document}

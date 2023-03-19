@@ -1,0 +1,56 @@
+\subsubsection{Paraboloide}
+\begin{figure}[!ht]
+    \centering
+	%
+	\tdplotsetmaincoords{60}{130}
+	\begin{tikzpicture}[tdplot_main_coords,scale=1]
+		\tikzmath{function f(\x) {return \x;};}
+		\pgfmathsetmacro{\zini}{0.5*sqrt(2.0)}
+		\pgfmathsetmacro{\step}{0.01}
+		\pgfmathsetmacro{\zsig}{\zini+\step}
+		\pgfmathsetmacro{\nextz}{\zini+0.5*\step}
+		\pgfmathsetmacro{\sig}{2.0*\step}
+		\pgfmathsetmacro{\tini}{0.5*pi}
+		\pgfmathsetmacro{\tfin}{1.85*pi}
+		\pgfmathsetmacro{\tend}{2.5*pi}
+		%%% Coordinate axis
+		\draw[thick,->] (0,0,0) -- (3.5,0,0) node [below left] {\footnotesize$x$};
+		\draw[dashed] (0,0,0) -- (-2.5,0,0);
+		\draw[thick,->] (0,0,0) -- (0,3.5,0) node [right] {\footnotesize$y$};
+		\draw[dashed] (0,0,0) -- (0,-2.5,0);
+		\draw[thick] (0,0,0) -- (0,0,4.0); % Z axis (part under the plane z = 4)
+		% The region of integration
+		\draw[gray,thick,fill=yellow,opacity=0.35] plot[domain=0:6.2832,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{0.0}); 
+		%	
+		\draw[gray,dash dot dot] (-2,0,0) -- (-2,0,4);
+		\draw[gray,dash dot dot] (0,-2,0) -- (0,-2,4);
+		% The plane: x + y = 2
+		\coordinate (A) at (2,2,4);
+		\coordinate (B) at (-2,2,4);
+		\coordinate (C) at (-2,-2,4);
+		\coordinate (D) at (2,-2,4);
+		% Curves bounding the solid.
+		\draw[blue,thick,opacity=0.5] plot[domain=-2:2,smooth,variable=\t] ({\t},0,{\t*\t}); 
+		\draw[blue,thick,opacity=0.5] plot[domain=-2:2,smooth,variable=\t] (0,{\t},{\t*\t}); 
+		\draw[blue,thick,opacity=0.5] plot[domain=0:6.2832,smooth,variable=\t] ({2.0*cos(\t r)},{2.0*sin(\t r)},{4.0}); 
+		% The paraboloid (level curves z = constant)
+		\foreach \altura in {\step,\sig,...,4.0}{
+			\pgfmathparse{sqrt(\altura)}
+			\pgfmathsetmacro{\radio}{\pgfmathresult}
+			\draw[cyan,thick,opacity=0.25] plot[domain=0:6.2832,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{\altura}); 
+		}
+		% The plane
+		\draw[white] (C) -- (B) node[red,above,sloped,midway]{$z = 4$};
+		\fill[pattern color=pink,pattern=north east lines] (A) -- (B) -- (C) -- (D) -- (A);
+		\draw[thick,red] (A) -- (B) -- (C) -- (D) -- (A);
+		%
+		\draw[gray,dash dot dot] (2,0,0) -- (2,0,4);
+		\draw[gray,dash dot dot] (0,2,0) -- (0,2,4);
+		%
+		\node[blue,left] at (1,-1.25,2.5) {$z = x^2 + y^2$};
+		\draw[thick,->] (0,0,4.0) -- (0,0,4.5) node [above] {\footnotesize$z$};	
+	\end{tikzpicture}
+    
+    \caption{Paraboloide cortado por un plano}
+    \label{fig:paraboloide}
+\end{figure}

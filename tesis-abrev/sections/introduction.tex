@@ -1,0 +1,286 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Introduction 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter[Introduction]{\textbf{I}ntroduction}\label{sec:intro}
+\sectionblue*{Summary}
+\begin{center}
+\begin{tabular}{c}
+\fcolorbox{blue}{verylightgrey}{
+\begin{minipage}[][4cm][c]{0.8\linewidth}
+\sffamily
+%abstract 
+This chapter details the general questions of the document. It provides a brief 
+explanation of the motivation for this work. Then, the list of objectives of the
+thesis is introduced. The completion of these tasks and the final calendar
+of execution of the project (year by year) is included as well. The manuscript
+is logically divided into three different parts: Preliminaries, State of the Art
+and Meta-alignments. There is also a brief description of the chapters of each
+part. Finally, some particular considerations about how to read the book and
+the layout of the document are presented.
+\end{minipage}}\\
+\\[2ex]
+\begin{minipage}[][4cm][c]{0.9\linewidth}
+\minitoc
+\end{minipage}
+\end{tabular}
+\end{center}
+\newpage
+
+\sectionblue{General objectives}
+\index{thesis!genobjectives@general objectives}%
+
+\lettrine[lines=4,loversize=-0.1,lraise=0.1,lhang=.2]{T}{he principal objective of the thesis dissertation}
+is to explain in detail the topic on which the work of several years has been focused. In addition, 
+the experience of the author at different areas has been reflected here in the numerous descriptions 
+and solutions to several biological and computational problems. Speculation about future research and
+criticism have been a valuable ingredient as well.
+
+This is a thesis about computational sequence analysis, particularly applied to characterize genomic
+sequences. The way in which this synergy between a biological problem and a computational solution 
+is expressed was considered to be crucial for the success of this document. The generality of the 
+proposed solutions, which can be applied to any type of sequence (biological or not), is also underlined
+in the corresponding sections.
+
+The core of the thesis is the development of a new family of algorithms to align transcription regulatory 
+regions. Among them, a global pairwise algorithm and a global progressive multiple algorithm have been 
+shown to be useful in the characterization of a gene promoter region, specially when the amount of 
+predictions by other systems is excessive. Sketches of other versions are also provided (parallel, local).
+
+The work performed about the meta-alignment strategy has been interestingly complemented and enriched
+with a serious approach to the algorithms that originated the concept of sequence analysis several decades
+ago. Such a chapter is an interesting opportunity to review for the first time some of the classic papers 
+in the field that are still very relevant, in spite of the deluge of new proposals and publications 
+continuously released. The introduction of this material in the document improves without any doubt the 
+quality of the final manuscript.
+
+In addition, several references about the relationship between current advances in genomics and society 
+can be found in the text. In my opinion, ethics must be part of any human achievement. Genomics and other 
+'Omics' disciplines promise to radically change our way of life. Medicine, biotech farming, crime 
+investigation and personal privacy among others will be severely affected.
+
+To sum up, this thesis aims to become an educational book reference. This is an excellent opportunity to 
+explain in detail the topic of the meta-alignment but also to construct an exciting portrait of sequence 
+analysis in computational biology. To satisfy all of these requirements, the use of current technologies 
+to produce an outstanding work was also mandatory. Thus, a DVD with additional materials (electronic 
+thesis, relevant bibliography, source code, educational material, \ldots) supporting the main text is a
+good complement to the PhD dissertation.
+
+
+\sectionblue{Objectives}
+\index{thesis!objectives@objectives}% 
+
+The characterization of gene regulatory regions is a fundamental step toward understanding the
+great existing variability between different species. However, it is still an open problem
+due to the peculiar features of the regulatory elements. The research in this PhD thesis has
+been oriented to the development of new computational methods of alignment to deal with such 
+information. However, it is important to mention that the algorithms presented here can deal 
+with other problems that show a similar theoretical framework, lacking of a biological background.
+
+\noindent In short, the following objectives were established in 2001 for this thesis:
+
+\begin{menumerate}
+\item
+To study the biological problem of gene regulation in eukaryotes. This includes the control of gene 
+expression, specially through the transcription of the genes: promoters, transcription factors, 
+DNA-protein binding sites, chromatin effect, CpG islands.
+\item
+To analyze the current computational methods to search regulatory elements in a promoter region. This 
+includes the algorithms based on pattern matching using catalogues of regulatory elements and the 
+pattern discovery algorithms that extract useful information from a set of related sequences.
+\item
+To investigate the more recent comparative approaches based on phylogenetic footprinting and 
+microarrays. To understand the biological concepts behind the gene orthology. To study the biological 
+and technological concepts of the high-throughput expression experiments.
+\item
+To analyze the existent sequence pairwise sequence alignment algorithms. To study the concept
+of map, the mapping functions and the map alignment problem.
+\item
+To design novel algorithms to align two regulatory sequences that produce a minor amount of false 
+positives. To present real biological scenarios in which these approaches show to be more efficient 
+than the conventional sequence alignment algorithms.
+\item
+To compile and to maintain a public dataset of regulatory annotations suitable for training these
+and other algorithms that deal with data from comparative genomics and microarray experiments.
+\item
+To study several alternatives to extend the basic pairwise approach developed before to align
+multiple sequences. Test this approach on orthologous datasets and microarray expression data.
+\item
+Public distribution of the software and the databases produced during this thesis to the 
+scientific community. To write web servers that implement most of the methods presented above.
+\end{menumerate}
+
+
+\sectionblue{Thesis chronology}
+\index{thesis!chronology@chronology}% 
+
+This is a short enumeration of the main tasks implemented during the PhD thesis and their 
+associated results, year by year:
+
+\begin{mitemize}
+\item 2001
+\begin{menumerate}
+\item Planning: decide the main lines and the objectives of the thesis.
+\item Biological problem: bibliographical research in general molecular biology books about the 
+eukaryotic transcription and other forms of gene regulation.
+\item State of the art: bibliographical research in published papers about the classical algorithms
+and strategies to analyze gene promoter regions. Including the study of the advanced techniques such
+phylogenetic footprinting and microarray experiments.
+\item Attended conferences: Intelligent Systems in Molecular Biology (ISMB) at Copenhaguen, Denmark.
+\end{menumerate}
+
+\item 2002
+\begin{menumerate}
+\item Analysis of co-expressed genes in \emph{Drosophila melanogaster}: gene characterization, 
+G+C content, clustering, gene function, promoter characterization including phylogenetic analysis.
+\item Analysis of co-expressed genes in \emph{Mus musculus}: the results of several microarrays were 
+analyzed with the existing computational tools, including phylogenetic footprinting.
+\end{menumerate}
+
+\item 2003
+\begin{menumerate}
+\item
+Developing the global and local meta-alignment first prototypes.
+\item
+Bibliographical research to find regulatory data for training the meta-alignment approach.
+\item
+Attended conferences: Research in Computational Biology (RECOMB) at Berlin, Germany.
+\end{menumerate}
+
+
+\item 2004
+\begin{menumerate}
+\item
+Tuning the meta-alignment. Improving the efficiency of the basic implementation with lists.
+\item
+Writing the web server of the pairwise meta-alignment program.
+\item 
+Training the meta-alignment on a small dataset of annotated promoters.
+\item
+First prototypes for multiple meta-alignment.
+\item
+Attended conferences: Systems Biology at Cold Spring Harbor Labs, New York, USA.
+\end{menumerate}
+
+
+\item 2005
+\begin{menumerate}
+\item
+Creation of a public database of annotated promoters (ABS).
+\item
+Final tests: pairwise meta-alignment approach on the CISRED database.
+\item
+Evaluation of the quality of weight matrices using the meta-alignment.
+\item
+Tuning the multiple meta-alignment. Improving the computational efficiency.
+\item
+Variations to allow the existence of non-colinear alignments in the results.
+\item
+Starting to write the thesis dissertation.
+\item
+Attended conferences: Systems Biology at Cold Spring Harbor Labs, New York, USA.
+\end{menumerate}
+
+\item 2006
+\begin{menumerate}
+\item
+Final training of the multiple meta-alignment on a set of orthologous of multiple species.
+\item
+Finishing the thesis dissertation.
+\item
+Public defense of the PhD thesis.
+\end{menumerate}
+\end{mitemize}
+
+
+
+\sectionblue{Outline of this thesis}
+\index{thesis!outline@outline}% 
+
+This thesis has been written following the format of a text book. The main text is divided into
+three parts: introduction, state of the art and results. Every part consists of a set of 
+chapters, each one devoted to a given topic. Chapters can be read separately to facilitate the accession 
+to individual parts of the book, but the thesis has been written following a linear and continuous 
+logical script.
+
+\noindent This is a brief description of the content of each chapter:
+
+\begin{menumerate}
+\item Introduction: general motivation of the thesis containing the objectives, the calendar
+and other considerations about the project and the format of the book.
+
+\item The post-genomic era: biological description of genomic concepts (genes, DNA, mRNA), 
+the genome sequencing projects, bioinformatics, future implications of the genomic research in medicine.
+
+\item The golden age of sequence analysis: a comprehensive historical review of the pioneering algorithms 
+in sequence and map alignment in the seventies and eighties, including a detailed analysis of the most 
+relevant ones.
+
+\item Computational gene and promoter characterization: a survey of the state of the art in the
+analysis of genomic sequences (genes and regulatory regions), and a study of the different techniques
+implemented such as the representation of signals, the detection of biased content regions or the
+homology search.
+
+\item Pairwise meta-alignment of regulatory sequences: the mapping functions, the TF-map approach,
+basic implementations, the accurate construction of collections of examples, the training, the application
+on a database of co-regulated genes, the detection of promoter regions, the use of meta-alignment to 
+evaluate the specificity of matrices. Other versions: local and parallel meta-alignment.
+
+\item Multiple meta-alignment of regulatory sequences: the progressive approach, the design of the final 
+solution, the modification to produce non-colinear alignments, the tests on orthologous promoters from 
+multiple species.
+
+\item Conclusions: the enumeration of the results of this thesis.
+
+\item Appendix section: curriculum vitae, software and web servers, publications, posters, web glossary.
+
+\end{menumerate}
+
+
+\sectionblue{Particular considerations}
+
+The following are some individual considerations about the thesis:
+
+\begin{mitemize}
+\item
+The electronic version of this document has hyper links for the table
+of contents, for the bibliographic references, but most important of all, 
+also for the web addresses on the Internet---from now on, their Uniform Resource 
+Locator (URL).
+This means that you can visit the corresponding web page by clicking
+your pointer on them, in case that you have your PDF viewer properly
+customized. Many of the URLs presented in this book have been
+collected in a web links reference index available on
+page~\pageref{sec:webrefs}. URLs within paragraphs have been moved
+into that web glossary in order to avoid unbalanced line breaks and
+for a more pleasant reading. A reference to the corresponding page in
+the web reference index is provided instead. 
+\item
+An attempt has been made to keep software names as provided by their
+authors. Those names appear in a \prog{\progfont}. Database names are
+typeset in a \db{\dbfont}. A \emph{emphasized font} was used for gene
+names.
+\item
+The first time an acronym appears in the document, the full name will
+be provided and the acronym itself will be shown in parentheses. 
+\item
+The publications and submissions of papers in which the author of this thesis 
+was involved are included at the end of the thesis as an appendix.
+\item
+The use of colour is considered to be essential to accurately highlight
+some contents of the thesis such as the equations, the algorithms or the
+figures and the tables. 
+\item
+The author of this thesis has carefully selected the bibliography of each
+chapter. Following such references, a detailed reconstruction of such a
+topic can be performed with great accuracy. Some of these references are
+also included as electronic supplementary material in the DVD companion 
+to this thesis.
+\end{mitemize}
+
+%%% References for this chapter
+%%% ENCERRAR ENTRE LLAVES PARA EVITAR PROBLEMAS
+%\bibliographystyle{plainnat}
+%{\bibliography{sections/bibliography}}

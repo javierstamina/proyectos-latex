@@ -1,0 +1,55 @@
+%
+% $Id: bookback.tex 11 2005-03-29 00:58:58Z jabril $
+%
+%{\centering%
+\begin{center}
+
+ \ifthenelse{\not \boolean{COVERflg}}%
+            {%
+             \thispagestyle{empty}%
+             \pagecolor{covergreen}%
+                 \color{coverwhite}%
+            }%
+            {}%
+
+\begin{minipage}[t][0.965\textheight][c]{0.8\textwidth} 
+\color{coverwhite}%
+\begin{center}
+
+%{\rule[-2ex]{0pt}{0pt}}
+\avantgarboldhuge\mytitle
+
+\vskip 2.5ex
+
+{\avantgarboldLarge\thyauthor}
+%\vskip 1.5ex{\cattitle}
+
+\vskip 2.5ex%\bigskip
+
+{%\color{darkgreen}%
+\setlength{\fboxsep}{0.5cm}
+\colorbox{covergreen}{%
+ \begin{minipage}{0.925\textwidth}%
+  \setlength{\parindent}{0.5cm}%
+  \color{coverwhite}\avantgarsmall%
+  \input{sections/abstract}%
+ \end{minipage}%
+}%fbox
+}%color
+
+\vskip 2.5ex%\vfill
+
+{\avantgarboldLarge GBL Dissertation Series}\\
+
+{\avantgarLarge Universitat Polit\`ecnica de Catalunya}\\[3ex]
+
+%\bigskip
+
+%\hfill
+%{\avantgarlarge ISBN XX-XXX-XXXX-X}
+
+\end{center}
+\end{minipage}
+\end{center}
+%}%centering
+

@@ -1,0 +1,52 @@
+\chapter[Conclusions]{\textbf{C}onclusions}\label{sec:conclusions}
+
+\index{thesis!concl@conclusions}
+\lettrine[lines=4,loversize=-0.1,lraise=0.1,lhang=.2]{T}{he TF-map alignments can be very useful} to
+efficiently perform searches of promoter elements that might be conserved in different species. In short, 
+the research presented here has contributed to improve the computational characterization of gene 
+transcription regulatory regions in the following aspects:
+
+\begin{menumerate}
+\item
+We have designed a new family of algorithms, which are named TF-map alignments or simply 
+meta-alignments, to detect conserved high-order configurations of functional elements that do not show 
+discernible sequence conservation. The meta-alignment algorithm does not directly 
+compare the primary sequences. Instead, the algorithm aligns the map of high-level
+elements obtained with an external mapping function over the original sequences, taking 
+into account their position, the element class and the mapping score.
+
+\item
+We have generalized the pairwise meta-alignment algorithm to deal with multiple maps.
+We followed a progressive approach in which the multiple meta-alignment is build up in
+a stepwise manner: a first multiple alignment is created with the two most similar maps,
+and the rest of maps or groups of maps are then aligned to this initial multiple meta-alignment
+following a guide tree.
+
+\item
+We have investigated the structure and the shape of the resulting meta-alignments. We have
+incorporated some modifications in the basic algorithm in order to detect non-collinear 
+configurations in the alignments without additional computational cost.
+
+\item
+We have successfully applied the meta-alignment algorithms on the biological problem of 
+eukaryotical promoter characterization. First, we have manually curated a collection of
+orthologous transcription factor binding sites from the literature, that are experimentally 
+verified in human, mouse, rat or chicken. Next, we have trained the meta-alignment program
+on a subset of well characterized human-mouse promoters, extracted from this collection.
+Then, we have shown the TF-map alignments are more accurate than conventional sequence 
+alignment to distinguish pairwise gene co-expression in a large collection of microarray results. 
+
+\item
+We have also used the meta-alignment approach to distinguish promoters from other 
+gene regions in a set of well characterized human-rodent gene pairs and their corresponding 
+orthologs in chicken and zebrafish. In this particular problem, the multiple meta-alignment 
+identified correctly most orthologous promoter regions, even when comparing to protein coding
+regions that presented a stronger sequence conservation.
+
+\item
+We have comprehensively reviewed the topic of sequence alignment, specially focusing on the 
+pioneering algorithms that have mostly contributed to the field. In addition, we have also 
+contributed to extend our expertise in the areas of computational gene finding and promoter 
+characterization, within the field of bioinformatics.
+\end{menumerate}
+
